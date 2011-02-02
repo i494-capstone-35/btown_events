@@ -1,0 +1,2 @@
+Fabricator(:facility) do
+end

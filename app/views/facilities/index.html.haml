@@ -1,0 +1,17 @@
+%h1 Listing facilities
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @facilities.each do |facility|
+    %tr
+      %td= link_to 'Show', facility
+      %td= link_to 'Edit', edit_facility_path(facility)
+      %td= link_to 'Destroy', facility, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Facility', new_facility_path

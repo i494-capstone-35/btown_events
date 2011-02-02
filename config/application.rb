@@ -38,5 +38,12 @@ module BtownEvents
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Generate Rspec with controllers
+    config.generators do |gen|
+      gen.template_engine :haml
+      gen.test_framework :rspec, :fixture => true, :views => false
+      gen.fixture_replacement :fabrication, :dir => "spec/fabricators"
+    end
   end
 end
