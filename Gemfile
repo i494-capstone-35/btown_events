@@ -4,6 +4,8 @@ gem 'rails', '3.0.3'
 
 gem 'decent_exposure'
 gem 'haml'
+gem 'hpricot'
+gem 'ruby_parser'
 gem 'pg'
 
 group :development do
