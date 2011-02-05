@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Facility do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @facility = Factory.build(:facility)
+  end
+
+  context 'attributes' do
+    it 'has a name' do
+      @facility.name.should == "Bar Pub Club Stage Place"
+    end
+  end
 end

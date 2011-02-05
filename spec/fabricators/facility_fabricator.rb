@@ -1,2 +1,0 @@
-Fabricator(:facility) do
-end
