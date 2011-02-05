@@ -1,0 +1,13 @@
+table {
+  padding: 10px;
+  border: 2px solid red;
+  width: 70%;
+  margin: 0 auto; }
+  table tr {
+    padding: 10px 0px;
+    margin: 10px 0px; }
+    table tr th {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid black;
+      height: 120px; }

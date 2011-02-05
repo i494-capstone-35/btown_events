@@ -1,16 +1,19 @@
+%table
+  %thead
+    - day = 0
+    - 5.times do 
+      %tr.week 
+        - 7.times do
+          - unless day >= 31
+            %th.day= day += 1
+
 %h1 Listing facilities
 
-%table
+- @facilities.each do |facility|
   %tr
-    %th
-    %th
-    %th
-
-  - @facilities.each do |facility|
-    %tr
-      %td= link_to 'Show', facility
-      %td= link_to 'Edit', edit_facility_path(facility)
-      %td= link_to 'Destroy', facility, :confirm => 'Are you sure?', :method => :delete
+    %td= link_to 'Show', facility
+    %td= link_to 'Edit', edit_facility_path(facility)
+    %td= link_to 'Destroy', facility, :confirm => 'Are you sure?', :method => :delete
 
 %br
 

@@ -43,7 +43,7 @@ module BtownEvents
     config.generators do |gen|
       gen.template_engine :haml
       gen.test_framework :rspec, :fixture => true, :views => false
-      gen.fixture_replacement :fabrication, :dir => "spec/fabricators"
+      gen.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
   end
 end
