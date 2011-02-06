@@ -7,9 +7,11 @@
       %tr.week 
         - 7.times do
           - unless day >= 31
-            %td.day= day += 1
-            - @events.select { |e| e.date.day == day }.each do |event|
-              %td.day= event.name
+            %td.day
+              #datebox
+                .date= day += 1
+              - @events.select { |e| e.date.day == day }.each do |event|
+                %strong= link_to event.name
 
 
   - @events.each do |event|
