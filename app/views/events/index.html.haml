@@ -1,25 +1,26 @@
-%h1 Listing events
-
 %table
   %thead
     - day = 0
     - 5.times do 
       %tr.week 
         - 7.times do
-          - unless day >= 31
+          - #TODO abstract this
+          - unless day >= Time.now.end_of_month.day
             %td.day
               #datebox
                 .date= day += 1
-              - @events.select { |e| e.date.day == day }.each do |event|
-                %strong= link_to event.name
+                %ul
+                  - @months_events.select { |e| e.date.day == day }.each do |event|
+                    %li= link_to event.name
 
-
-  - @events.each do |event|
-    %tr
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Event', new_event_path
+-#
+-#
+-#  - @events.each do |event|
+-#    %tr
+-#      %td= link_to 'Show', event
+-#      %td= link_to 'Edit', edit_event_path(event)
+-#      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
+-#
+-#%br
+-#
+-#= link_to 'New Event', new_event_path

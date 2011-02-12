@@ -1,6 +1,16 @@
 class Event < ActiveRecord::Base
   belongs_to :facility
 
-  #validates_presence_of :name, :date, :start_time, :end_time
-  # validates_uniqueness_of :name
+  unless Date.today.leap?
+    feb = 28
+  else
+    feb = 29
+  end
+  MONTHS = [31,feb,31,30,31,30,31,31,30,31,30,31]
+
+  current_month = Integer Time.now.strftime("%m")
+  days = MONTHS[current_month]
+  #m = Integer Time.now.strftime("%m")
+
+  named_scope :months_events, lambda { |time| where(:date => (time.beginning_of_month..time.end_of_month)) }
 end

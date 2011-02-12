@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
     @events = Event.all
+    @months_events = Event.months_events Time.now
 
     respond_to do |format|
       format.html # index.html.erb

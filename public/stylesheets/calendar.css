@@ -1,16 +1,17 @@
 table {
   padding: 10px;
-  border: 2px solid red;
   width: 70%;
   margin: 0 auto; }
   table tr {
     padding: 10px 0px;
-    margin: 10px 0px; }
+    margin: 10px; }
     table tr td.day {
-      border: 1px solid black;
+      border: 1px solid #e6e6e6;
       padding: 10px;
-      margin: 10px;
       height: 120px;
+      background-color: white;
+      background-image: -moz-linear-gradient(100% 100% 90deg, #f2f2f2, white);
+      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#f2f2f2));
       width: 10%; }
       table tr td.day #datebox {
         position: relative;
@@ -20,6 +21,9 @@ table {
           position: absolute;
           top: 0;
           left: 0; }
-        table tr td.day #datebox a {
+        table tr td.day #datebox a.event {
           position: static;
           text-decoration: none; }
+      table tr td.day ul {
+        list-style-type: none;
+        float: left; }

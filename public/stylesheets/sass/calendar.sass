@@ -1,16 +1,20 @@
+=gradient-bg($color1, $color2)
+  background-color: $color1
+  background-image: -moz-linear-gradient(100% 100% 90deg, $color2, $color1)
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
+
 table
   padding: 10px
-  border: 2px solid red
   width: 70%
   margin: 0 auto
   tr
     padding: 10px 0px
-    margin: 10px 0px
+    margin: 10px
     td.day
-      border: 1px solid black
+      border: 1px solid #e6e6e6
       padding: 10px
-      margin: 10px
       height: 120px
+      +gradient-bg(#ffffff, #f2f2f2)
       width: 10%
       #datebox
         position: relative
@@ -23,3 +27,9 @@ table
         a.event
           position: static
           text-decoration: none
+      ul
+        list-style-type: none 
+        float: left
+        li
+
+
