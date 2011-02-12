@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Maven Pro";
+  src: url(http://dl.dropbox.com/u/56239/MavenPro/Maven%20Pro.otf); }
+
+body h1 {
+  font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans; }
+body #categories ul {
+  list-style-type: none; }
+  body #categories ul li {
+    font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans;
+    font-size: 1.3em; }
+    body #categories ul li a {
+      text-decoration: none; }

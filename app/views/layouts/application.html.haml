@@ -9,4 +9,11 @@
 
   %body
     %h1 Bloomington Events
+    %div#categories
+      %ul
+        %li
+          = link_to 'Calendar', '/'
+          = link_to 'Places', 'facilities'
+          = link_to 'Categories', '#'
+          =# link_to 'About Us', '#'
     = yield

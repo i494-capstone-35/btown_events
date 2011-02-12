@@ -3,33 +3,38 @@
   background-image: -moz-linear-gradient(100% 100% 90deg, $color2, $color1)
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
 
-table
-  padding: 10px
-  width: 70%
-  margin: 0 auto
-  tr
-    padding: 10px 0px
-    margin: 10px
-    td.day
-      border: 1px solid #e6e6e6
-      padding: 10px
-      height: 120px
-      +gradient-bg(#ffffff, #f2f2f2)
-      width: 10%
-      #datebox
-        position: relative
-        height: 100%
-        width: 100%
-        .date
-          position: absolute
-          top: 0
-          left: 0
-        a.event
-          position: static
-          text-decoration: none
-      ul
-        list-style-type: none 
-        float: left
-        li
-
+#calendar_container
+  float: left
+  #previous_month
+    float:left
+  table
+    padding: 10px
+    width: 70%
+    margin: 0 auto
+    tr
+      padding: 10px 0px
+      margin: 10px
+      td.day
+        border: 1px solid #e6e6e6
+        padding: 10px
+        height: 120px
+        +gradient-bg(#ffffff, #f2f2f2)
+        width: 10%
+        #datebox
+          position: relative
+          height: 100%
+          width: 100%
+          .date
+            position: absolute
+            top: 0
+            left: 0
+          a.event
+            position: static
+            text-decoration: none
+        ul
+          list-style-type: none 
+          float: left
+          li
+  #next_month
+    float: left
 
