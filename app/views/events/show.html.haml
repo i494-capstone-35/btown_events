@@ -1,6 +1,5 @@
-%p#notice= notice
+- @events.map(&:category).uniq.sort.each do |c|
+  %ul
+    %li= link_to c.category, categories_path
 
-
-= link_to 'Edit', edit_event_path(@event)
-\|
 = link_to 'Back', events_path
