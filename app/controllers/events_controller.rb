@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
+  attr_accessor :marker
   # GET /events
   # GET /events.xml
   def index
     @events = Event.all
     @months_events = Event.months_events Time.now
-
+    @marker = Integer Time.now.end_of_month.day
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }

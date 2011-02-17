@@ -1,13 +1,15 @@
+- content_for :head do
+  = javascript_include_tag 'shiftcal'
+
 %div#calendar_container
   %div#previous_month
   %table
     %thead
       - day = 0
-      - 5.times do 
+      - 5.times do
         %tr.week 
-          - 7.times do
-            - #TODO abstract this
-            - unless day >= Time.now.end_of_month.day
+          - unless day >= @marker
+            - 7.times do
               %td.day
                 #datebox
                   .date= day += 1
