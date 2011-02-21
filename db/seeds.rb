@@ -1,5 +1,4 @@
 facility = Factory.build(:facility, :name => "BarPubStein")
 facility.save
 
-event = Factory.build(:event)
-event.save
+5.times { Factory.build(:event).save }

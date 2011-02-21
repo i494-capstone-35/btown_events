@@ -1,10 +1,10 @@
 BtownEvents::Application.routes.draw do
   root :to => 'events#index'
 
-  resources :events, :only => [:index,:show]
+  match '/categories' => 'events#categories'
+  resources :events, :only => [:index]
 
-  resources :facilities , :only => [:index, :show]
-
+  resources :facilities , :only => [:index, :show] 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

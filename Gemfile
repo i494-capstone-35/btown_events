@@ -6,6 +6,7 @@ gem 'rails', '3.0.3'
 gem 'haml'
 #gem 'high_voltage'
 gem 'pg'
+gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'

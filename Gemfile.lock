@@ -45,6 +45,9 @@ GEM
       railties (~> 3.0)
     hpricot (0.8.3)
     i18n (0.5.0)
+    jquery-rails (0.2.7)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -103,6 +106,7 @@ DEPENDENCIES
   haml
   haml-rails
   hpricot
+  jquery-rails
   pg
   rails (= 3.0.3)
   rails3-generators
