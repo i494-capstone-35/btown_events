@@ -1,14 +1,25 @@
-@font-face {
-  font-family: "Maven Pro";
-  src: url(http://dl.dropbox.com/u/56239/MavenPro/Maven%20Pro.otf); }
-
+@import url(http://fonts.googleapis.com/css?family=Chewy);
 body h1 {
-  font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans;
-  font-size: 4em; }
-body #categories ul {
-  list-style-type: none; }
-  body #categories ul li {
-    font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans;
-    font-size: 1.5em; }
-    body #categories ul li a {
-      text-decoration: none; }
+  font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
+  font-size: 4em;
+  color: black;
+  margin: 0 auto; }
+body #categories ul li {
+  font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
+  font-size: 2em;
+  list-style-type: none;
+  display: inline;
+  text-decoration: none;
+  padding-right: 20px; }
+  body #categories ul li a {
+    text-decoration: none;
+    background: none; }
+    body #categories ul li a:hover {
+      color: black; }
+body #main {
+  margin: 0 auto;
+  max-width: 90%;
+  min-width: 50%;
+  padding: 20px 0; }
+  body #main ul.categories {
+    float: left; }

@@ -1,19 +1,33 @@
-@font-face
-  font-family: "Maven Pro"
-  src: url(http://dl.dropbox.com/u/56239/MavenPro/Maven%20Pro.otf)
+@import url(http://fonts.googleapis.com/css?family=Chewy)
 
 =title-ff
-  font-family: "Maven Pro", "Helvetica Neue", Helvetica, sans
+  font-family: 'Chewy', "Helvetica Neue", Helvetica, sans
 
 body
   h1
     +title-ff
     font-size: 4em
+    color: black
+    margin: 0 auto
   #categories
     ul
-      list-style-type: none
       li
         +title-ff
-        font-size: 1.5em
+        font-size: 2.0em
+        list-style-type: none
+        display: inline
+        text-decoration: none
+        padding:
+          right: 20px
         a
           text-decoration: none
+          background: none
+          &:hover
+            color: black
+  #main
+    margin: 0 auto
+    max-width: 90%
+    min-width: 50%
+    padding: 20px 0
+    ul.categories
+      float: left

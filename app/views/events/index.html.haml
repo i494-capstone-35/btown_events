@@ -6,16 +6,15 @@
   %table
     %thead
       - day = 0
-      - 5.times do
         %tr.week 
           - unless day >= @marker
-            - 7.times do
-              %td.day
-                #datebox
-                  .date= day += 1
-                  %ul
-                    - @months_events.select { |e| e.date.day == day }.each do |event|
-                      %li= link_to event.name
+          - 7.times do
+            %td.day
+              #datebox
+                .date= day += 1
+                %ul
+                  - @months_events.select { |e| e.date.day == day }.each do |event|
+                    %li= link_to event.name
   %div#next_month
 
 -#
