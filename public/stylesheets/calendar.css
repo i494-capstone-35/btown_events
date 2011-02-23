@@ -3,7 +3,8 @@
   #calendar_container table {
     padding: 10px;
     width: 70%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    float: left; }
     #calendar_container table tr {
       padding: 10px 0px;
       margin: 10px; }
@@ -29,5 +30,5 @@
         #calendar_container table tr td.day ul {
           list-style-type: none;
           float: left; }
-  #calendar_container #next_month {
+  #calendar_container #next_month a {
     float: left; }

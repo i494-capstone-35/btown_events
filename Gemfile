@@ -7,6 +7,7 @@ gem 'haml'
 #gem 'high_voltage'
 gem 'pg'
 gem 'jquery-rails'
+gem 'will_paginate', '3.0.pre2'
 
 group :test, :development do
   gem 'rspec-rails'

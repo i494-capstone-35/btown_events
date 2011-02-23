@@ -1,2 +1,6 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  $("#next_month a").click(function() {
+    $.ajax({url: '/increment?weeks=1'}); 
+    return false;
+  });
+});

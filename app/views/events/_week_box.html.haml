@@ -1,0 +1,2 @@
+- @months_events.select { |e| e.date.day == day }.each do |event|
+  %li= link_to event.name

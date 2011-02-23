@@ -2,6 +2,7 @@ BtownEvents::Application.routes.draw do
   root :to => 'events#index'
 
   match '/categories' => 'events#categories'
+  match '/increment' => 'events#increment'
   resources :events, :only => [:index]
 
   resources :facilities , :only => [:index, :show] 
