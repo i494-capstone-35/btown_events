@@ -24,11 +24,10 @@
             position: absolute;
             top: 0;
             left: 0; }
+          #calendar_container table tr td.day #datebox strong {
+            font-size: 20; }
           #calendar_container table tr td.day #datebox a.event {
             position: static;
             text-decoration: none; }
-        #calendar_container table tr td.day ul {
-          list-style-type: none;
-          float: left; }
   #calendar_container #next_month a {
     float: left; }

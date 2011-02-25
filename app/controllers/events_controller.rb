@@ -1,18 +1,16 @@
 class EventsController < ApplicationController
-  cattr_accessor :marker
-  # GET /events
-  # GET /events.xml
-  @@maker = Time.now.beginning_of_week
 
   def increment
-    #params[:weeks].to_i 
-    @months_events = Event.months_events(@@marker + params[:weeks].to_i.weeks)
+    n = params[:weeks].to_i
+    @marker = Date.today.beginning_of_week + n.weeks
+    @week_events = Event.weeks_events @marker
     render :partial => 'week_box'
   end
 
   def index
     @events = Event.all
-    @months_events = Event.months_events @marker
+    @marker = Date.today.beginning_of_week
+    @week_events = Event.months_events @marker
     
     respond_to do |format|
       format.html # index.html.erb

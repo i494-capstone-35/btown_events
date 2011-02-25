@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :facility
 
   named_scope :months_events, lambda { |time| where(:date => (time.beginning_of_month..time.end_of_month)) }
+  named_scope :weeks_events, lambda { |time| where(:date => (time.beginning_of_week..time.end_of_week)) }
 
   after_validation :recurrence_defined
 

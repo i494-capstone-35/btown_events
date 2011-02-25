@@ -3,16 +3,8 @@
 
 %div#calendar_container
   %div#previous_month
-  %table
-    %thead
-      - day = Date.today.day - 1
-      %tr.week 
-        - 7.times do
-          %td.day
-            #datebox
-              .date= day += 1
-              %ul
-                = render :partial => 'week_box'
+    = link_to "<<"
+  = render :partial => 'week_box'
   %div#next_month
     = link_to ">>"
     
