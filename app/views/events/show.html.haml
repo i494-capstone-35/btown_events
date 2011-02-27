@@ -1,5 +1,4 @@
-- @events.map(&:category).uniq.sort.each do |c|
-  %ul
-    %li= link_to c.category, categories_path
+%h2= @event.name
+%h3= "#{@event.date.strftime("%h %d %Y")} #{@event.start_time.strftime("%R")}"
 
 = link_to 'Back', events_path

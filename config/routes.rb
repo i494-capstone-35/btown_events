@@ -3,7 +3,7 @@ BtownEvents::Application.routes.draw do
 
   match '/categories' => 'events#categories'
   match '/increment' => 'events#increment'
-  resources :events, :only => [:index]
+  resources :events, :only => [:index, :show]
 
   resources :facilities , :only => [:index, :show] 
   # The priority is based upon order of creation:

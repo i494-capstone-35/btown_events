@@ -7,4 +7,4 @@
         .date= day
         - @marker += 1.days
         - @week_events.select { |e| e.date.day == day }.each do |event|
-          %strong= event.name 
+          = link_to event.name, event_path(event)
