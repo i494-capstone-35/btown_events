@@ -2,29 +2,29 @@ require 'spec_helper'
 
 describe Event do
   before do
-    @event = Event.new
     @factory = Factory.build(:event)
     @events = Event.all
   end
 
   context 'valid format' do
+    it 'has a valid date' do
+      @factory.date = "4/20/2012 16:20"
+      @factory.date.strftime("%D").should == "04/20/12"
+      @factory.date.strftime("%T").should == "16:20:00"
+    end
     it 'has a valid start time' do
-      @event.start_time = "2:00"
-      @event.start_time.strftime("%H:%M").should == "02:00"
-      @event.start_time.strftime("%D").should == Time.now.strftime("%D")
+      @factory.start_time = "2:00"
+      @factory.start_time.strftime("%H:%M").should == "02:00"
+      expect { @factory.save }.to change { @factory.start_time.day }.to @factory.date.day
     end
     it 'has a valid end time' do
-      @event.end_time = "2:00"
-      @event.end_time.strftime("%H:%M").should == "02:00"
-      @event.end_time.strftime("%D").should == Time.now.strftime("%D")
-    end
-    it 'has a valid date' do
-      @event.date = "4/20/2012 16:20"
-      @event.date.strftime("%D").should == "04/20/12"
-      @event.date.strftime("%T").should == "16:20:00"
+      @factory.end_time = "2:00"
+      @factory.end_time.strftime("%H:%M").should == "02:00"
+      expect { @factory.save }.to change { @factory.end_time.day }.to @factory.date.day
+      @factory.end_time = "#{@factory.end_time.tomorrow.strftime("%h %da")} 01:00"
+      @factory.save; @factory.end_time.day.should_not == @factory.date.day
     end
     it 'has a unique name' do
-      @event.name = "Culture Shock"
       #@event.name.should be_unique
     end
     it 'has a unique address' do
