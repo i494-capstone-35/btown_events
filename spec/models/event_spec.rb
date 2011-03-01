@@ -21,8 +21,11 @@ describe Event do
       @factory.end_time = "2:00"
       @factory.end_time.strftime("%H:%M").should == "02:00"
       expect { @factory.save }.to change { @factory.end_time.day }.to @factory.date.day
+    end
+    it 'has a valid end time tomorrow' do
       @factory.end_time = "#{@factory.end_time.tomorrow.strftime("%h %da")} 01:00"
-      @factory.save; @factory.end_time.day.should_not == @factory.date.day
+      @factory.save
+      @factory.end_time.day.should_not == @factory.date.day
     end
     it 'has a unique name' do
       #@event.name.should be_unique

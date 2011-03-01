@@ -3,12 +3,8 @@ class FacilitiesController < ApplicationController
   # GET /facilities.xml
   def index
     @facilities = Facility.all
-    # expose(:facilities) { Facility.all }
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @facilities }
-    end
+    respond_to :html
   end
 
   # GET /facilities/1

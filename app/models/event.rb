@@ -11,8 +11,11 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :name, :date, :start_time, :end_time
 
-  named_scope :months_events, lambda { |time| where(:date => (time.beginning_of_month..time.end_of_month)) }
-  named_scope :weeks_events, lambda { |time| where(:date => (time.beginning_of_week..time.end_of_week)) }
+  named_scope :weeks_events, lambda { |time| 
+    where(:date => (time.beginning_of_week..time.end_of_week)) }
+  named_scope :months_events, lambda { |time| 
+    where(:date => (time.beginning_of_month..time.end_of_month)) }
+  named_scope :categories, lambda { |c| where(:category => c)}
 
   after_validation :recurrence_defined
 

@@ -9,13 +9,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @count = Event.count
     @marker = Date.today.beginning_of_week
-    @week_events = Event.months_events @marker
+    @week_events = Event.weeks_events @marker
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @events }
-    end
+    respond_to :html
   end
 
   def show
