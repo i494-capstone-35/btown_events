@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Chewy)
+@import 'mixins'
 
-=title-ff
-  font-family: 'Chewy', "Helvetica Neue", Helvetica, sans
+a.visited, a.active
+  text-decoration: none
 
 body
   h1
@@ -9,6 +10,9 @@ body
     font-size: 4em
     color: black
     margin: 0 auto
+  h2
+    +title-ff
+    font-size: 2em
   #categories
     ul
       li

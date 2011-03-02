@@ -1,9 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Chewy);
+a.visited, a.active {
+  text-decoration: none; }
+
 body h1 {
   font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
   font-size: 4em;
   color: black;
   margin: 0 auto; }
+body h2 {
+  font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
+  font-size: 2em; }
 body #categories ul li {
   font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
   font-size: 2em;

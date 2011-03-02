@@ -3,8 +3,9 @@
     - 7.times do
       %td.day
         #datebox
-        - day = @marker.day
-        .date= day
-        - @marker += 1.days
-        - @week_events.select { |e| e.date.day == day }.each do |event|
-          = link_to event.name, event_path(event)
+          - day = @marker.day
+          .date= day
+          - @marker += 1.days
+          %ul
+            - @week_events.select { |e| e.date.day == day }.each do |event|
+              %li= link_to event.name, event_path(event), :class => 'event'

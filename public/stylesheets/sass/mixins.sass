@@ -1,0 +1,74 @@
+=border-radius($r)
+  -webkit-border-radius: $r
+  -moz-border-radius: $r
+  border-radius: $r
+
+=border-top-right-radius($r)
+  -webkit-border-top-right-radius: $r
+  -moz-border-radius-topright: $r
+  border-top-right-radius: $r
+
+=border-top-left-radius($r)
+  -webkit-border-top-left-radius: $r
+  -moz-border-radius-topleft: $r
+  border-top-left-radius: $r
+
+=border-bottom-right-radius($r)
+  -webkit-border-bottom-right-radius: $r
+  -moz-border-radius-bottomright: $r
+  border-bottom-right-radius: $r
+
+=border-bottom-left-radius($r)
+  -webkit-border-bottom-left-radius: $r
+  -moz-border-radius-bottomleft: $r
+  border-bottom-left-radius: $r
+
+=box-shadow($x)
+  -webkit-box-shadow: $x
+  moz-box-shadow: $x
+  box-shadow: $x
+
+=opacity($o)
+  -moz-opacity: $o
+  opacity: $o
+
+=columns($n, $gap)
+  -moz-column-count: $n
+  -moz-column-gap: $gap
+  -webkit-column-count: $n
+  -webkit-column-gap: $gap
+  column-count: $n
+  column-gap: $gap
+
+=gradient-bg($color1, $color2)
+  background: -moz-linear-gradient(top, $color1 0%, $color2 100%)
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2))
+
+=title-ff
+  font-family: 'Chewy', "Helvetica Neue", Helvetica, sans
+
+=btn
+  background: #e3e3e3
+  +border-radius(3px)
+  +box-shadow(inset 0 0 1px 1px #f6f6f6)
+  border: 1px solid #a6b5c3
+  cursor: pointer
+  font-family: "Helvetica Neue", "Helvetica", arial, sans
+  font-size: 12px
+  font-weight: bold
+  line-height: 1
+  padding: 8px 10px
+  text-align: center
+  width: 500px
+
+
+=transition
+  transition: all 0.2s ease-in-out
+  -webkit-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+
+=after
+  &:after
+    content: ""
+    display: block
+    clear: both
