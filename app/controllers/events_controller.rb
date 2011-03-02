@@ -24,12 +24,4 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @event }
     end
   end
-
-  def categories
-    @categories = Event.all.map(&:category).uniq.sort
-
-    respond_to do |format|
-      format.html
-    end
-  end
 end

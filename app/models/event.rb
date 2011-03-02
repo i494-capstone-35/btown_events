@@ -4,18 +4,20 @@ class Event < ActiveRecord::Base
   before_save :time_dates
   def time_dates
     self.start_time = "#{date.strftime("%h %d")} #{start_time.strftime("%R")}"
-    unless end_time > date
+    unless start_time.hour > end_time.hour
       self.end_time = "#{date.strftime("%h %d")} #{end_time.strftime("%R")}"
+    else
+      self.end_time = "#{(date + 1.days).strftime("%h %d")} #{end_time.strftime("%R")}"
     end
   end
 
   validates_presence_of :name, :date, :start_time, :end_time
 
-  named_scope :weeks_events, lambda { |time| 
+  scope :weeks_events, lambda { |time| 
     where(:date => (time.beginning_of_week..time.end_of_week)) }
-  named_scope :months_events, lambda { |time| 
+  scope :months_events, lambda { |time| 
     where(:date => (time.beginning_of_month..time.end_of_month)) }
-  named_scope :categories, lambda { |c| where(:category => c)}
+  scope :categories, lambda { |c| where(:category => c)}
 
   after_validation :recurrence_defined
 

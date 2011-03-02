@@ -1,22 +1,7 @@
-- content_for :head do
-  = javascript_include_tag 'shiftcal'
-
 %div#calendar_container
   %div#previous_month
-    = link_to "<<"
+    = link_to "<<", '#', :class => 'btn'
   = render :partial => 'week_box'
   %div#next_month
-    = link_to ">>"
-    
-
--#
--#
--#  - @events.each do |event|
--#    %tr
--#      %td= link_to 'Show', event
--#      %td= link_to 'Edit', edit_event_path(event)
--#      %td= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete
--#
--#%br
--#
--#= link_to 'New Event', new_event_path
+    = link_to ">>", '#', :class => 'btn'
+  %div#rando= link_to "I'm Bored...Let's Party!", "events/#{(rand @count) + 1}", :class => 'btn'

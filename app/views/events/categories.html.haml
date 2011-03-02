@@ -1,8 +1,0 @@
-- content_for :head do
-  =#javascript_include_tag 'shiftcal'
-
-%h2 Categories
-- @categories.each_slice(5) do |c|
-  %ul.categories
-    - c.each do |cc|
-      %li.category= link_to cc
