@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :facility
+  belongs_to :event
 
   before_save :time_dates
   def time_dates
