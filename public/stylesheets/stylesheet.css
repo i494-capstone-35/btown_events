@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Chewy);
-a.visited, a.active {
-  text-decoration: none; }
+a {
+  color: gray; }
 
 body h1 {
   font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
@@ -20,12 +20,8 @@ body #categories ul li {
   body #categories ul li a {
     text-decoration: none;
     background: none; }
-    body #categories ul li a:hover {
-      color: black; }
 body #main {
   margin: 0 auto;
-  max-width: 90%;
-  min-width: 50%;
   padding: 20px 0; }
   body #main ul.categories {
     float: left; }
