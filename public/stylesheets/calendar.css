@@ -27,7 +27,7 @@
   content: "";
   display: block;
   clear: both; }
-#calendar_container #previous_month {
+#calendar_container #previous {
   float: left;
   height: 220px;
   line-height: 180px; }
@@ -77,7 +77,7 @@
         text-decoration: none;
         text-align: center;
         font-size: 12px; }
-#calendar_container #next_month {
+#calendar_container #next {
   float: left;
   height: 220px;
   line-height: 180px; }

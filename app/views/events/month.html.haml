@@ -1,0 +1,10 @@
+%div#calendar_container
+  %div#previous
+    = link_to "<<", '#', :class => 'btn'
+  = render :partial => 'month_box'
+  %div#next
+    = link_to ">>", '#', :class => 'btn'
+  %div#rando= link_to "It's my birthday! I'm single! Let's party!", 
+    "#", 
+    :class => 'btn',
+    "data-message" => @count

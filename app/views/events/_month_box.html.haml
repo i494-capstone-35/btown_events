@@ -1,0 +1,16 @@
+%table
+  - @weeks += 1 unless @extras.nil? 
+  - @weeks.times do |i|
+    %tr.week
+      - if !@extras.nil? && i == 4
+        - @days = @extras
+      - @days.times do
+        %td.day
+          #datebox
+            - day = @marker.day
+            %strong.day= @marker.strftime("%A")
+            .date= day
+            - @marker += 1.days
+            %ul
+              - @week_events.select { |e| e.date.day == day }.each do |event|
+                %li= link_to event.name, event_path(event), :class => 'event'
