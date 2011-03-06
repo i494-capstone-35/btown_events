@@ -1,5 +1,5 @@
 %h1 Listing facilities
 
 - @facilities.each do |facility|
-  %li
-    %ul= "#{facility.name}, #{facility.address}"
+  %ul
+    %li= link_to facility.name, facility_path(facility)

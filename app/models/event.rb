@@ -7,8 +7,6 @@ class Event < ActiveRecord::Base
     self.start_time = "#{date.strftime("%h %d")} #{start_time.strftime("%R")}"
     unless start_time.hour > end_time.hour
       self.end_time = "#{date.strftime("%h %d")} #{end_time.strftime("%R")}"
-    else
-      self.end_time = "#{(date + 1.days).strftime("%h %d")} #{end_time.strftime("%R")}"
     end
   end
 
