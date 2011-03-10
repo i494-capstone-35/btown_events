@@ -8,14 +8,14 @@ gem 'excelsior'
 #gem 'high_voltage'
 gem 'pg'
 gem 'jquery-rails'
+gem 'json'
+gem 'barista'
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'rails3-generators'
   gem 'haml-rails'
   gem 'factory_girl_rails'
-  gem 'json'
-  gem 'barista'
 end
 
 group :development do
