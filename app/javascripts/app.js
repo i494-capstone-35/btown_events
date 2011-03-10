@@ -1,15 +1,9 @@
 (function() {
   $(document).ready(function() {
-    var m, slide;
+    var m;
     m = 0;
     $("#previous a").click(function() {
-      return slide("right", "left", -1);
-    });
-    $("#next a").click(function() {
-      return slide("left", "right", 1);
-    });
-    slide = function(dirOut, dirIn, marker) {
-      m += marker;
+      m -= 1;
       $.ajax({
         url: '/increment',
         data: {
@@ -17,17 +11,37 @@
         },
         success: function(new_table) {
           return $("table").hide("slide", {
-            direction: dirOut
+            direction: "right"
           }, 480, function() {
             $(this).replaceWith(new_table);
             return $("table").show("slide", {
-              direction: dirIn
+              direction: "left"
             }, 300);
           });
         }
       });
       return false;
-    };
+    });
+    $("#next a").click(function() {
+      m += 1;
+      $.ajax({
+        url: '/increment',
+        data: {
+          "weeks": m
+        },
+        success: function(new_table) {
+          return $("table").hide("slide", {
+            direction: "left"
+          }, 480, function() {
+            $(this).replaceWith(new_table);
+            return $("table").show("slide", {
+              direction: "right"
+            }, 300);
+          });
+        }
+      });
+      return false;
+    });
     return $("#rando a").click(function() {
       var count, random;
       count = this.getAttribute("data-message");
