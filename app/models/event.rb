@@ -2,15 +2,10 @@ class Event < ActiveRecord::Base
   belongs_to :facility
   belongs_to :event
 
-  before_save :time_dates
-  def time_dates
-    self.start_time = "#{date.strftime("%h %d")} #{start_time.strftime("%R")}"
-    unless start_time.hour > end_time.hour
-      self.end_time = "#{date.strftime("%h %d")} #{end_time.strftime("%R")}"
-    end
-  end
+  before_save :time_dates, :category_empty
+  after_validation :recurrence_defined
 
-  validates_presence_of :name, :date, :start_time, :end_time
+  validates_presence_of :name, :date
 
   scope :weeks_events, lambda { |time| 
     where(:date => (time.beginning_of_week..time.end_of_week)) }
@@ -18,39 +13,43 @@ class Event < ActiveRecord::Base
     where(:date => (time.beginning_of_month..time.end_of_month)) }
   scope :categories, lambda { |c| where(:category => c)}
 
-  after_validation :recurrence_defined
-
-  def recurrence_defined
-    unless recurrence.nil?
-      number = Integer recurrence[0,1]
-      string = recurrence[1,2]
-      r = []
-      unless number == 0
-        case string
-        when 'w' then
-          num = 7.days
-        when 'd' then
-          num = 1.days 
-        when 'm' then
-          num = 1.month
-        end
-        while number > 0
-          clone = self.clone
-          unless r.empty?
-            clone.date = r[0] + num
-            clone.start_time = r[1] + num
-            clone.end_time = r[2] + num
-          else
-            clone.date = self.date.to_datetime + num
-            clone.start_time = self.start_time.to_datetime + num
-            clone.end_time = self.end_time.to_datetime + num
+  private
+    def time_dates
+      unless start_time.nil?
+        self.start_time = "#{date.strftime("%h %d")} #{start_time.strftime("%R")}"
+        unless end_time.nil?
+          unless start_time.hour > end_time.hour
+            self.end_time = "#{date.strftime("%h %d")} #{end_time.strftime("%R")}"
           end
-          clone.recurrence = nil
-          clone.save
-          r = [clone.date, clone.start_time, clone.end_time]
-          number -= 1
         end
       end
     end
-  end
+
+    def category_empty
+      if category.nil?
+        self.category = "Misc"
+      end
+    end
+
+    def recurrence_defined
+      unless recurrence.nil?
+        number = Integer recurrence[0].chr
+        string = recurrence[1].chr
+        if category == "Bar Specials" && recurrence == "1w"
+          term = 12
+        else 
+          term = Integer recurrence[2].chr
+        end
+        unless number == 0
+          case string
+          when 'w' then
+            num = 7.days
+          when 'd' then
+            num = 1.days 
+          when 'm' then
+            num = 1.month
+          end
+        end
+      end
+    end
 end

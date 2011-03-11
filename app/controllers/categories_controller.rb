@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-  
   def index
     @categories = Event.all.map(&:category).uniq.sort
 

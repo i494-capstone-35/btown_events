@@ -2,8 +2,6 @@
   - @weeks += 1 unless @extras.nil? 
   - @weeks.times do |i|
     %tr.week
-      - if !@extras.nil? && i == 4
-        - @days = @extras
       - @days.times do
         %td.day
           #datebox
