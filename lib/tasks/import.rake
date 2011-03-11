@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'excelsior'
-
 namespace :db do
   desc "Import CSV of Events"
 
@@ -18,7 +15,6 @@ namespace :db do
       attrs[8] = Event.find_by_name(attrs[8]) unless attrs[8].nil?
       Event.create(Hash[columns.zip(attrs)])
     end
-
   end
 
   task :real => ["db:reset", "db:import"]
