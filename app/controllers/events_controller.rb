@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
     @count = Event.count
     @marker = Date.today.beginning_of_week
     @week_events = Event.weeks_events @marker
@@ -22,12 +21,9 @@ class EventsController < ApplicationController
   end
 
   def month
-    @events = Event.all
     @count = Event.count
     @marker = Date.today.beginning_of_month.beginning_of_week
     @weeks = (Time.days_in_month Date.current.month) / 7
-    @extras = (Time.days_in_month Date.current.month) % 7
-    @days = 7
     @week_events = Event.weeks_events @marker
 
     respond_to :html

@@ -2,7 +2,7 @@
   - @weeks += 1 unless @extras.nil? 
   - @weeks.times do |i|
     %tr.week
-      - @days.times do
+      - 7.times do
         %td.day
           #datebox
             - day = @marker.day
