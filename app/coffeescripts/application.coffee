@@ -12,10 +12,31 @@ $(document).ready ->
     $.ajax
       url: '/increment'
       data: {"weeks" : m}
-      success: (new_table) ->
+      success: (newTable) ->
         $("table").hide "slide", {direction: dirOut}, 480, ->
-          $(this).replaceWith(new_table)
+          $(this).replaceWith(newTable)
           $("table").show "slide", {direction: dirIn}, 300
+    return false
+
+  $("li a#sort_date").click ->
+    fade_categories "date"
+
+  $("li a#sort_name").click ->
+    fade_categories "name"
+
+  fade_categories = (sortMethod) ->
+    url = location.pathname
+    category = url.split('/')[2]
+    $.ajax
+      url: '/sort'
+      data: {
+        "sortMethod" : sortMethod,
+        "category"   : category
+      }
+      success: (newList) ->
+        $("ul#categories").fadeOut "slow", ->
+          $("ul#categories").html(newList)
+          $("ul#categories").fadeIn "slow"
     return false
 
   $("#rando a").click ->

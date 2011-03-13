@@ -37,9 +37,8 @@
     float: left;
     margin-bottom: 10px; }
     #calendar_container table tbody td.day {
-      height: 180px;
+      min-height: 500px;
       margin-left: 6px;
-      zoom: 1;
       padding: 3px;
       background: #f2f2f2;
       -webkit-border-radius: 5px;

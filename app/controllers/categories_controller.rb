@@ -10,4 +10,13 @@ class CategoriesController < ApplicationController
 
     respond_to :html
   end
+
+  def sort
+    @category = Event.categories params[:category]
+    puts @category.count
+    sort = params[:sortMethod]
+    @category = @category.sort_by(&sort.to_sym)
+    puts @category.count
+    render :partial => 'categories'
+  end
 end

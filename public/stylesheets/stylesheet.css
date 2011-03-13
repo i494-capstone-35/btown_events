@@ -28,3 +28,9 @@ body #main {
   width: 100%;
   overflow: hidden;
   padding: 20px 0; }
+  body #main ul#sort li {
+    display: inline;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 2em;
+    margin-right: 25px; }
