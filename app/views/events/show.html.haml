@@ -1,9 +1,13 @@
 %h2= @event.name
-- if @event.start_time.nil?
+- if @event.start_time.blank?
   %h3= "#{@event.date.strftime("%h %d %Y")} Starts: TBA"
 - else
   %h3= "#{@event.date.strftime("%h %d %Y")} #{@event.start_time.strftime("%R")}"
-- if @event.end_time.nil?
+- if @event.end_time.blank?
   %h3= "#{@event.date.strftime("%h %d %Y")} Ends: TBA"
 - else
-  %h3= "#{@event.date.strftime("%h %d %Y")} #{@event.start_time.strftime("%R")}"
+  %h3= "#{@event.date.strftime("%h %d %Y")} #{@event.end_time.strftime("%R")}"
+
+%div#attributes
+  %ul
+    %li= link_to "Category - #{@event.category}", category_path(@event.category)

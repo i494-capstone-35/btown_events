@@ -1,4 +1,7 @@
 %h2= @category.first.category
+%ul#sort
+  %li= link_to 'Date', '#', @category.sort_by(&:date)
+  %li= link_to 'Name', '#', @category.sort_by(&:name)
 - @category.each_slice(5) do |c|
   %ul
     - c.each do |cat|

@@ -2,18 +2,23 @@
 @import 'mixins'
 
 a
-  color: gray
+  text-decoration: none
+  color: #CC0000
+  &:visited
 
 body
   h1
-    +title-ff
-    font-size: 4em
-    color: black
-    margin: 0 auto
+    a
+      +title-ff
+      font-size: 2em
+      color: #CC0000
+      float: left
   h2
     +title-ff
     font-size: 2em
   #categories
+    float: left
+    margin-top: 10px
     ul
       li
         +title-ff
@@ -28,7 +33,6 @@ body
           background: none
           &:hover
   #main
-    margin: 0 auto
+    width: 100%
+    overflow: hidden
     padding: 20px 0
-    ul.categories
-      float: left

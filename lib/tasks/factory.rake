@@ -10,11 +10,10 @@ namespace :db do
       :website => "www.iuauditorium.com")
 
       5.times do |n|
-        Factory.create( :event,
-                        :name     => "Event \##{Event.count + 1 + n}",
-                        :date     => Date.today + (rand(14) + 1).days,
-                        :category => String (n % 2 == 0 ? n : n - 1)
-                      )
+        Factory.create(:event,
+                       :name     => "Event \##{Event.count + 1}",
+                       :date     => Date.today + (rand(14) + 1).days,
+                       :category => String (n % 2 == 0 ? n : n - 1))
       end
   end
   task :test => ["db:reset", "db:factory"]
