@@ -11,3 +11,5 @@
 %div#attributes
   %ul
     %li= link_to "Category - #{@event.category}", category_path(@event.category)
+    %li= link_to "Address  - #{@event.address}", 
+      "http://maps.google.com/?q=#{@event.address}"

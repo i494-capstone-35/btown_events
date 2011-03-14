@@ -27,7 +27,8 @@ body #categories {
 body #main {
   width: 100%;
   overflow: hidden;
-  padding: 20px 0; }
+  padding: 20px 0;
+  float: left; }
   body #main ul#sort li {
     display: inline;
     list-style-type: none;

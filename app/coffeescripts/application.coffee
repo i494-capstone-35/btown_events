@@ -8,7 +8,7 @@ $(document).ready ->
     slide "left", "right", 1
 
   slide = (dirOut, dirIn, marker) ->
-    m += marker 
+    m += marker
     $.ajax
       url: '/increment'
       data: {"weeks" : m}

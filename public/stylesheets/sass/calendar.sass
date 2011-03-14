@@ -14,16 +14,18 @@
   #previous
     float: left
     width: 40px
-    height: 220px
     line-height: 180px
   table
     padding: 0 5px
     width: 93%
     float: left
-    margin-bottom: 10px
+    margin-bottom: 20px
     tbody
+      height: 200px
+      tr
+        vertical-align: top
       td.day
-        min-height: 500px
+        min-width: 120px
         margin-left: 6px
         padding: 3px
         background: #f2f2f2
@@ -39,8 +41,11 @@
           margin: 2px 5px
           height: 100%
           width: 100%
+          position: relative
           .date
             float: left
+            top: 0
+            left: 2px
             font-size: 11px
             padding: 3px
             border: 1px solid #C4C4C4
@@ -50,7 +55,7 @@
             padding: 0
             clear: both
             list-style-type: none
-            margin-left: 10px
+            margin: 5px 10px 0px
           a.event
             text-decoration: none
             text-align: center
@@ -59,8 +64,6 @@
     float: right
     width: 40px
     line-height: 180px
-    a
-      height: 220px
   #rando
     width: 100%
     clear: both
