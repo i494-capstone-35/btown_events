@@ -13,6 +13,8 @@ $(document).ready ->
       url: '/increment'
       data: {"weeks" : m}
       success: (newTable) ->
+        $("h3#month").fadeOut "slow", ->
+            $(this).remove
         $("table").hide "slide", {direction: dirOut}, 480, ->
           $(this).replaceWith(newTable)
           $("table").show "slide", {direction: dirIn}, 300

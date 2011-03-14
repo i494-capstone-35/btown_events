@@ -79,6 +79,8 @@
             clear: both;
             list-style-type: none;
             margin: 5px 10px 0px; }
+            #calendar_container table tbody td.day #datebox ul li {
+              border: 1px solid #e0e0e0; }
           #calendar_container table tbody td.day #datebox a.event {
             text-decoration: none;
             text-align: center;

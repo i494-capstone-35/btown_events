@@ -16,6 +16,9 @@
           "weeks": m
         },
         success: function(newTable) {
+          $("h3#month").fadeOut("slow", function() {
+            return $(this).remove;
+          });
           return $("table").hide("slide", {
             direction: dirOut
           }, 480, function() {
