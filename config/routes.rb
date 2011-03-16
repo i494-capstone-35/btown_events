@@ -11,6 +11,8 @@ BtownEvents::Application.routes.draw do
 
   match '/places' => 'facilities#index', :as => "facilities", :controller => :facility
   match '/places/:id' => 'facilities#show', :as => "facility", :controller => :facility
+
+  #match '/app.manifest' => Rails::Offline
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
