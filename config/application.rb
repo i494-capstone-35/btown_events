@@ -45,5 +45,8 @@ module BtownEvents
       gen.test_framework :rspec, :fixture => true, :views => false
       gen.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
+
+    # Jammit
+    config.gem 'jammit'
   end
 end

@@ -10,6 +10,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'json'
 gem 'barista'
+gem 'jammit'
 
 group :test, :development do
   gem 'rspec-rails'

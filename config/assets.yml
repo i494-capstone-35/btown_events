@@ -1,0 +1,10 @@
+javascripts:
+  libraries:
+    - public/javascripts/jquery-*.js
+  main:
+    - public/javascripts/rails.js
+    - public/javascripts/application.js
+
+stylesheets:
+  main:
+    - public/stylesheets/*.css
