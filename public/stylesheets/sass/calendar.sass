@@ -15,16 +15,20 @@
     float: left
     width: 40px
     line-height: 180px
+    margin-top: 40px
+  p#month
+    font-size: 20px
+    +title-ff
   table
     padding: 0 5px
     width: 93%
     float: left
     margin-bottom: 20px
-    tbody
+    tr
+      vertical-align: top
       height: 200px
-      tr
-        vertical-align: top
       td.day
+        height: auto
         min-width: 120px
         margin-left: 6px
         padding: 3px
@@ -42,26 +46,26 @@
           height: 100%
           width: 100%
           position: relative
-          .date
-            float: left
-            top: 0
-            left: 2px
-            font-size: 11px
-            padding: 3px
-            border: 1px solid #C4C4C4
-            margin-right: 4px
-            +border-radius(4px)
-          ul
-            padding: 0
-            clear: both
-            list-style-type: none
-            margin: 5px 10px 0px
-            li
-              border: 1px solid #e0e0e0
-          a.event
-            text-decoration: none
-            text-align: center
-            font-size: 12px
+        .date
+          float: left
+          top: 0
+          left: 2px
+          font-size: 11px
+          padding: 3px
+          border: 1px solid #C4C4C4
+          margin-right: 4px
+          +border-radius(4px)
+        ul
+          padding: 0
+          clear: both
+          list-style-type: none
+          margin: 5px 10px 0px
+          li
+            border: 1px solid #e0e0e0
+      a.event
+        text-decoration: none
+        text-align: center
+        font-size: 12px
   #next
     float: right
     width: 40px

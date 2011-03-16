@@ -16,16 +16,24 @@
           "weeks": m
         },
         success: function(newTable) {
-          $("h3#month").fadeOut("slow", function() {
-            return $(this).remove;
+          var month, table;
+          month = $(newTable)[0];
+          table = $(newTable)[2];
+          $("p#month").fadeOut("slow", function() {
+            $("p#month").html(month);
+            return $("p#month").fadeIn("slow");
           });
           return $("table").hide("slide", {
             direction: dirOut
           }, 480, function() {
-            $(this).replaceWith(newTable);
+            $(this).replaceWith(table);
             return $("table").show("slide", {
               direction: dirIn
-            }, 300);
+            }, 300, function() {
+              return $("#rando a").animate({
+                opacity: 0
+              }, "fast");
+            });
           });
         }
       });
@@ -49,8 +57,8 @@
         },
         success: function(newList) {
           return $("ul#categories").fadeOut("slow", function() {
-            $("ul#categories").html(newList);
-            return $("ul#categories").fadeIn("slow");
+            $(this).html(newList);
+            return $(this).fadeIn("slow");
           });
         }
       });

@@ -13,11 +13,15 @@ $(document).ready ->
       url: '/increment'
       data: {"weeks" : m}
       success: (newTable) ->
-        $("h3#month").fadeOut "slow", ->
-            $(this).remove
+        month = $(newTable)[0]
+        table = $(newTable)[2]
+        $("p#month").fadeOut "slow", ->
+            $("p#month").html(month)
+            $("p#month").fadeIn "slow"
         $("table").hide "slide", {direction: dirOut}, 480, ->
-          $(this).replaceWith(newTable)
-          $("table").show "slide", {direction: dirIn}, 300
+            $(this).replaceWith table
+            $("table").show "slide", {direction: dirIn}, 300, ->
+                $("#rando a").animate { opacity: 0 }, "fast"
     return false
 
   $("li a#sort_date").click ->
@@ -37,8 +41,8 @@ $(document).ready ->
       }
       success: (newList) ->
         $("ul#categories").fadeOut "slow", ->
-          $("ul#categories").html(newList)
-          $("ul#categories").fadeIn "slow"
+          $(this).html(newList)
+          $(this).fadeIn "slow"
     return false
 
   $("#rando a").click ->

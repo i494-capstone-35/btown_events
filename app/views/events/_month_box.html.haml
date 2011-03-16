@@ -1,3 +1,4 @@
+%p#month= @month_marker.strftime("%B")
 %table
   - @weeks += 1 unless @extras.nil? 
   - @weeks.times do |i|
