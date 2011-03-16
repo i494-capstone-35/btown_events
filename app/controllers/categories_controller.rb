@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def sort
-    @category = Event.categories params[:category]
+    @category = Event.categories(CGI.unescape params[:category])
     puts @category.count
     sort = params[:sortMethod]
     @category = @category.sort_by(&sort.to_sym)
