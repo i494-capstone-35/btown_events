@@ -13,6 +13,7 @@ $(document).ready ->
       url: '/increment'
       data: {"weeks" : m}
       success: (newTable) ->
+        /*$(newTable) is [<div>,ajaxytext,<table>]*/
         month = $(newTable)[0]
         table = $(newTable)[2]
         $("p#month").fadeOut "slow", ->
