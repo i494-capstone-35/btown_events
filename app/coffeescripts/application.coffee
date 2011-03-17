@@ -25,7 +25,7 @@ $(document).ready ->
     return false
 
   $("li a#sort_date").click ->
-    fade_categories "date"
+    fade_categories "start_time"
 
   $("li a#sort_name").click ->
     fade_categories "name"

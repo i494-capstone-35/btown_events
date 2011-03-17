@@ -40,7 +40,7 @@
       return false;
     };
     $("li a#sort_date").click(function() {
-      return fade_categories("date");
+      return fade_categories("start_time");
     });
     $("li a#sort_name").click(function() {
       return fade_categories("name");

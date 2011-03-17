@@ -13,10 +13,8 @@ class CategoriesController < ApplicationController
 
   def sort
     @category = Event.categories(CGI.unescape params[:category])
-    puts @category.count
     sort = params[:sortMethod]
     @category = @category.sort_by(&sort.to_sym)
-    puts @category.count
     render :partial => 'categories'
   end
 end
