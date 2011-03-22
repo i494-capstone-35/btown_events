@@ -7,17 +7,15 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :name, :date
 
-  scope :weeks_events, lambda { |time|
-    where(:start_time => (time.beginning_of_week..time.end_of_week)) }
-  scope :months_events, lambda { |time|
-    where(:start_time => (time.beginning_of_month..time.end_of_month)) }
+  scope :weeks_events, lambda { |time| where(:start_time => (time.beginning_of_week..time.end_of_week)) }
+  scope :months_events, lambda { |time| where(:start_time => (time.beginning_of_month..time.end_of_month)) }
   scope :categories, lambda { |c| where(:category => c)}
 
   private
   def time_dates
     unless start_time.nil?
       self.start_time = "#{date.strftime("%h %d")} #{start_time.strftime("%R")}"
-      unless end_time.nil?
+      unless end_time.nil? # check this first
         unless start_time.hour > end_time.hour
           self.end_time = "#{date.strftime("%h %d")} #{end_time.strftime("%R")}"
         end
@@ -33,29 +31,33 @@ class Event < ActiveRecord::Base
 
   def recurrence_defined
     unless recurrence.nil?
-      number = Integer recurrence[0].chr
+      # recurrence should look like "<num>[d,w,m]<times>"
+      # or if it's a bar special, omit the times since it defaults to 3 months
+      interval = Integer recurrence[0].chr
       string = recurrence[1].chr
-      if category == "Bar Specials" && recurrence == "1w"
+      if category == "Bar Special" && recurrence == "1w"
         term = 12
       else
         term = Integer recurrence[2].chr
       end
-      unless number == 0
+
+      recur = Proc.new do |x|
         case string
-        when 'w' then
-          num = 7.days
         when 'd' then
-          num = 1.days
+          (x * interval).days
+        when 'w' then
+          (x * interval * 7).days
         when 'm' then
-          num = 1.month
+          (x * interval).months
         end
       end
-      while term >= 0
+
+      # has the effect of saving all clones before the original
+      1.upto(term) do |i|
         clone = self.clone
-        clone.date = clone.date + (term * num)
+        clone.date += recur.call i
         clone.recurrence = nil
         clone.save
-        term -= 1
       end
     end
   end

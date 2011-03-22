@@ -28,33 +28,33 @@ describe Event do
       @factory.save
       @factory.end_time.day.should_not == @factory.date.day
     end
-    it 'has a unique name' do
-      #@event.name.should be_unique
-    end
-    it 'has a unique address' do
-
-    end
   end
+
   context 'creates the right number of clones' do
     it 'for days' do
-      @factory.recurrence = "4d"
-      expect { @factory.save }.to change { Event.count }.by(5)
+      @factory.recurrence = "4d2"
+      # When saved, it creates a new one itself so always + 1 to num of times
+      expect { @factory.save }.to change { Event.count }.by(3)
+
+      # Check similarity by name and recurrence set
+      @factory.name.should == Event.find_by_date(@factory.date + 4.days).name
+      @factory.name.should == Event.find_by_date(@factory.date + 8.days).name
     end
     it 'for weeks' do
-      @factory.recurrence = "3w"
-      expect { @factory.save }.to change { Event.count }.by(4)
+      @factory.recurrence = "3w1"
+      expect { @factory.save }.to change { Event.count }.by(2)
+      @factory.name.should == Event.find_by_date(@factory.date + 21.days).name
     end
     it 'for months' do
-      @factory.recurrence = "2m"
-      expect { @factory.save }.to change { Event.count }.by(3)
-    end
-    it 'for 0 n' do
-      @factory.recurrence = "0"
-      expect { @factory.save }.to change { Event.count }.by(1)
+      @factory.recurrence = "2m3"
+      expect { @factory.save }.to change { Event.count }.by(4)
+
+      @factory.name.should == Event.find_by_date(@factory.date + 2.months).name
+      @factory.name.should == Event.find_by_date(@factory.date + 4.months).name
+      @factory.name.should == Event.find_by_date(@factory.date + 6.months).name
     end
   end
   it 'changes the date correctly' do
-    @factory.recurrence = "3d"
   end
   context 'returns the right block of events for category' do
     let (:f2) { Factory.build(:event, :name => "f2", :category => "Two") }

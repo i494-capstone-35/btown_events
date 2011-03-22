@@ -16,5 +16,6 @@ namespace :db do
                        :category => String (n % 2 == 0 ? n : n - 1))
       end
   end
-  task :test => ["db:reset", "db:factory"]
+
+  task :dev => ["db:reset", "db:factory"]
 end
