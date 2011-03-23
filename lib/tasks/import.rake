@@ -2,6 +2,19 @@ namespace :db do
   desc "Import CSV of Events"
 
   task :import => :environment do
+    # import facilities before events
+
+    rows = []
+    Excelsior::Reader.rows(File.open("#{Dir.pwd}/db/Facilities.csv", 'rb')) do |row|
+      rows << row
+    end
+
+    columns = [:name, :number, :address, :website]
+    1.upto(rows.count - 1) do |row|
+      attrs = rows[row]
+      Facility.create(Hash[columns.zip(attrs)])
+    end
+
     rows = []
     Excelsior::Reader.rows(File.open("#{Dir.pwd}/db/Events\ Schedule.csv", 'rb')) do |row|
       rows << row
@@ -14,18 +27,6 @@ namespace :db do
       attrs[1] = Facility.find_by_name(attrs[1]) unless attrs[1].nil?
       attrs[8] = Event.find_by_name(attrs[8]) unless attrs[8].nil?
       Event.create(Hash[columns.zip(attrs)])
-    end
-
-    rows = []
-    Excelsior::Reader.rows(File.open("#{Dir.pwd}/db/Facilities.csv", 'rb')) do |row|
-      rows << row
-    end
-
-
-    columns = [:name, :number, :address, :website]
-    1.upto(rows.count - 1) do |row|
-      attrs = rows[row]
-      Facility.create(Hash[columns.zip(attrs)])
     end
   end
 
