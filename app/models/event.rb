@@ -7,8 +7,10 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :name, :date
 
-  scope :weeks_events, lambda { |time| where(:start_time => (time.beginning_of_week..time.end_of_week)) }
-  scope :months_events, lambda { |time| where(:start_time => (time.beginning_of_month..time.end_of_month)) }
+  scope :weeks_events, lambda { |time| \
+    where(:start_time => (time.beginning_of_week..time.end_of_week)) }
+  scope :months_events, lambda { |time| \
+    where(:start_time => (time.beginning_of_month..time.end_of_month)) }
   scope :categories, lambda { |c| where(:category => c)}
 
   private

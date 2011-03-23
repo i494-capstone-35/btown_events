@@ -1,4 +1,11 @@
 %h2= @facility.name
+%h3= link_to "Address - #{@facility.address}", 
+  "http://maps.google.com/?q=#{@facility.address}"
+%h3= link_to "Phone - #{@facility.number}", "tel://#{@facility.number}"
+- unless @facility.number.nil?
+  %h3= link_to "Website", @facility.website
+
+%strong Events
 %ul
   - @facility.events.each do |event|
     %li= link_to event.name, event_path(event)
