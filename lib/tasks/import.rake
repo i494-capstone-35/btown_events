@@ -15,6 +15,18 @@ namespace :db do
       attrs[8] = Event.find_by_name(attrs[8]) unless attrs[8].nil?
       Event.create(Hash[columns.zip(attrs)])
     end
+
+    rows = []
+    Excelsior::Reader.rows(File.open("#{Dir.pwd}/db/Facilities.csv", 'rb')) do |row|
+      rows << row
+    end
+
+
+    columns = [:name, :number, :address, :website]
+    1.upto(rows.count - 1) do |row|
+      attrs = rows[row]
+      Facility.create(Hash[columns.zip(attrs)])
+    end
   end
 
   task :real => ["db:reset", "db:import"]
