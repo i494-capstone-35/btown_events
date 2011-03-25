@@ -20,7 +20,7 @@
           month = $(newTable)[0];
           table = $(newTable)[2];
           $("p#month").fadeOut("slow", function() {
-            $("p#month").html(month);
+            $("p#month").html(month).addClass("n_month");
             return $("p#month").fadeIn("slow");
           });
           return $("table").hide("slide", {

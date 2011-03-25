@@ -10,20 +10,22 @@
 
 #calendar_container
   margin-top: 30px
-  width: 100%
+  width: 1260px
+  margin: 30px auto 0
   #previous
     float: left
     width: 40px
     line-height: 180px
-    margin-top: 40px
-  //div#title_cal
-    width: 100%
+    margin: 40px 0px 0px 0px
   p#month
     font-size: 20px
     +title-ff
+    margin-left: 50px
+  p#month.n_month
+    margin-left: 0
   table
-    padding: 0 5px
-    width: 93%
+    margin: 0 10px
+    width: 1150px
     float: left
     margin-bottom: 20px
     tr
@@ -39,7 +41,7 @@
         +box-shadow
         border: 1px solid
         border-color: #e5e5e5 #dbdbdb #d2d2d2
-        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
         +transition
         &:hover
           background: #e0e0e0
@@ -62,14 +64,15 @@
           clear: both
           list-style-type: none
           margin: 5px 10px 0px
-          li
-            border: 1px solid #e0e0e0
       a.event
         text-decoration: none
         text-align: center
         font-size: 12px
+        &:hover
+          background: yellow
+          +transition
   #next
-    float: right
+    float: left
     width: 40px
     line-height: 180px
   #rando

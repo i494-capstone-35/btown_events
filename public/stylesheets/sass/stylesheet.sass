@@ -4,21 +4,22 @@
 a
   text-decoration: none
   color: #CC0000
-  &:visited
 
 body
   h1
+    text-align: center
     a
       +title-ff
       font-size: 2em
       color: #CC0000
-      float: left
   h2
     +title-ff
     font-size: 2em
-  #categories
-    float: left
+  #sitemap
     margin-top: 10px
+    text-align: center
+    a:hover
+      text-decoration: underline
     ul
       li
         +title-ff
@@ -31,10 +32,8 @@ body
         a
           text-decoration: none
           background: none
-          &:hover
   #main
     width: 100%
-    overflow: hidden
     padding: 20px 0
     float: left
     ul#sort

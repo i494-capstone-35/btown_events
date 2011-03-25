@@ -1,7 +1,8 @@
-%h2= @category.first.category
-%ul#sort
-  %li= link_to 'Date', '#', :id => 'sort_date'
-  %li= link_to 'Name', '#', :id => 'sort_name'
-%ul#categories
-  = render 'categories'
+#category_div
+  %h2= @category.first.category
+  %ul#sort
+    %li= link_to 'Date', '#', :id => 'sort_date'
+    %li= link_to 'Name', '#', :id => 'sort_name'
+  %ul#categories
+    = render 'categories'
 

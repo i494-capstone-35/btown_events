@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
         term = Integer recurrence[2].chr
       end
 
-      recur = Proc.new do |x|
+      recur = lambda do |x|
         case string
         when 'd' then
           (x * interval).days

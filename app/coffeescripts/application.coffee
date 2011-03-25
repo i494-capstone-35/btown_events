@@ -17,7 +17,8 @@ $(document).ready ->
         month = $(newTable)[0]
         table = $(newTable)[2]
         $("p#month").fadeOut "slow", ->
-            $("p#month").html(month)
+            # replace html to fadeIn properly. add class to remove margin
+            $("p#month").html(month).addClass("n_month")
             $("p#month").fadeIn "slow"
         $("table").hide "slide", {direction: dirOut}, 480, ->
             $(this).replaceWith table

@@ -3,30 +3,32 @@ a {
   text-decoration: none;
   color: #cc0000; }
 
-body h1 a {
-  font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
-  font-size: 2em;
-  color: #cc0000;
-  float: left; }
+body h1 {
+  text-align: center; }
+  body h1 a {
+    font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
+    font-size: 2em;
+    color: #cc0000; }
 body h2 {
   font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
   font-size: 2em; }
-body #categories {
-  float: left;
-  margin-top: 10px; }
-  body #categories ul li {
+body #sitemap {
+  margin-top: 10px;
+  text-align: center; }
+  body #sitemap a:hover {
+    text-decoration: underline; }
+  body #sitemap ul li {
     font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
     font-size: 2em;
     list-style-type: none;
     display: inline;
     text-decoration: none;
     padding-right: 20px; }
-    body #categories ul li a {
+    body #sitemap ul li a {
       text-decoration: none;
       background: none; }
 body #main {
   width: 100%;
-  overflow: hidden;
   padding: 20px 0;
   float: left; }
   body #main ul#sort li {

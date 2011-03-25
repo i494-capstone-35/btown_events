@@ -16,3 +16,5 @@
         "http://maps.google.com/?q=#{@event.address}"
     - unless @event.facility.nil?
       %li= link_to "Facility - #{@event.facility.name}", facility_path(@event.facility)
+
+%p= @event.description
