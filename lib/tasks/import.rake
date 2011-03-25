@@ -20,7 +20,7 @@ namespace :db do
       rows << row
     end
 
-    columns = [:name, :facility, :date, :start_time, :end_time, :address, :recurrence, :category, :event]
+    columns = [:name, :facility, :date, :start_time, :end_time, :address, :recurrence, :category, :event, :admission, :description]
     n = rows.count - 1
     (1..n).each do |row|
       attrs = rows[row]
