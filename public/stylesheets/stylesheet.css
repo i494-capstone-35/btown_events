@@ -37,3 +37,13 @@ body #main {
     text-decoration: none;
     font-size: 2em;
     margin-right: 25px; }
+  body #main #facility {
+    width: 960px;
+    margin: 0 auto; }
+    body #main #facility #f_attributes {
+      float: left;
+      width: 50%; }
+    body #main #facility #event_wrapper {
+      float: right;
+      margin-top: 40px;
+      width: 50%; }

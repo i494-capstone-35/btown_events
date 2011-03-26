@@ -1,9 +1,17 @@
-%h2= @facility.name
-%h3= link_to "Address - #{@facility.address}",
-  "http://maps.google.com/?q=#{@facility.address}"
-%h3= link_to "Phone - #{@facility.number}", "tel://#{@facility.number}"
-%h3= link_to_unless @facility.number.nil?, "Website", @facility.website
+#facility
+  #f_attributes
+    %h2= @facility.name
+    - if File.exist? Rails.root + "public/images/logos/#{@facility.image}.jpg"
+      = image_tag "logos/#{@facility.image}.jpg"
+    %h3= link_to "Address - #{@facility.address}",
+      "http://maps.google.com/?q=#{@facility.address}"
+    %h3= "Phone - #{@facility.number}"
+    %h3= link_to_unless @facility.number.nil?, "Website", @facility.website
 
-%strong Events
-- @facility.events.each do |event|
-  %li= link_to event.name, event_path(event)
+  #event_wrapper
+    %strong Events
+    %ul
+      - @facility.events.each do |e|
+        %li
+          = e.date.strftime("%m/%d")
+          = link_to e.name, event_path(e)
