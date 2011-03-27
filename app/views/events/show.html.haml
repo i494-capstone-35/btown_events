@@ -10,6 +10,7 @@
 
 %div#attributes
   %ul
+    %li= "Admission - #{@event.admission}" unless @event.admission.nil?
     %li= link_to "Category - #{@event.category}", category_path(@event.category)
     - unless @event.address.nil?
       %li= link_to "Address  - #{@event.address}", 

@@ -9,10 +9,11 @@ namespace :db do
       rows << row
     end
 
-    columns = [:name, :number, :address, :website, :image]
+    columns = [:name, :number, :address, :website, :image, :s_name]
     1.upto(rows.count - 1) do |row|
       attrs = rows[row]
-      attrs[4] = attrs[0].gsub(/\s*/,"")
+      attrs[4] = attrs[0].gsub /\s*/,""
+      attrs[5] = attrs[0].sub /^(the|a|an)\s+/i, ''
       Facility.create(Hash[columns.zip(attrs)])
     end
 

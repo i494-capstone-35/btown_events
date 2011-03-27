@@ -1,6 +1,6 @@
 class FacilitiesController < ApplicationController
   def index
-    @facilities = Facility.all
+    @facilities = Facility.all.sort_by(&:s_name)
 
     respond_to :html
   end
