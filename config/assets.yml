@@ -1,10 +1,21 @@
+stylesheets:
+  main:
+    - public/stylesheets/calendar.css
+    - public/stylesheets/categories.css
+    - public/stylesheets/mixins.css
+    - public/stylesheets/stylesheet.css
+  mobile:
+    - public/stylesheets/jquery.mobile*.css
+    - public/stylesheets/mobile.css
+
 javascripts:
   libraries:
     - public/javascripts/jquery-*.js
   main:
     - public/javascripts/rails.js
     - public/javascripts/application.js
-
-stylesheets:
-  main:
-    - public/stylesheets/*.css
+  mobile_libraries:
+    - public/javascripts/jquery-1.4.4*.js
+    - public/javascripts/jquery.mobile*.js
+  mobile:
+    - public/javascripts/mobile.js

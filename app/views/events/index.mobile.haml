@@ -1,0 +1,13 @@
+%div#day_header{:data => {:role => "header", :backbtn => "false"}}
+  %a{:data => {:direction => "reverse"}}= (@today - 1.days).strftime "%A"
+  %h1= ordinalize_date @today
+  %a= (@today + 1.days).strftime("%A")
+%div#main{:data => {:role => "content"}}
+  %ul#categories{:data => {:role => "listview", :theme => "b"}}
+    %li
+      = link_to "Music", category_path("Music")
+      = link_to "#" 
+    %li= link_to "Bar Specials", category_path("Bar Specials")
+    %li= link_to "Night Clubs", category_path("Night Clubs")
+
+

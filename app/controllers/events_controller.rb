@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @count = Event.count
     @marker = Date.today.beginning_of_week
     @week_events = Event.weeks_events(@marker).sort_by(&:start_time)
+    @today = Date.today
     
     respond_to :html
   end
