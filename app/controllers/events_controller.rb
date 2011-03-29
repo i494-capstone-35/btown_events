@@ -6,12 +6,22 @@ class EventsController < ApplicationController
     render :partial => 'week_box'
   end
 
+  def date
+    n = params[:date].to_i
+    @today = Date.today + n.days
+    @categories = Event.all.map(&:category).uniq.sort
+    render :index
+  end
+
   def index
     @count = Event.count
     @marker = Date.today.beginning_of_week
     @week_events = Event.weeks_events(@marker).sort_by(&:start_time)
+
     @today = Date.today
-    
+    @mobile_marker = 0
+    @categories = Event.all.map(&:category).uniq.sort
+
     respond_to :html
   end
 

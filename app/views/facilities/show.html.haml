@@ -8,10 +8,11 @@
     %h3= "Phone - #{@facility.number}"
     %h3= link_to_unless @facility.number.nil?, "Website", @facility.website
 
-  #event_wrapper
-    %strong Events
-    %ul
-      - @facility.events.each do |e|
-        %li
-          = e.date.strftime("%m/%d")
-          = link_to e.name, event_path(e)
+  - unless @facility.events.empty?
+    #event_wrapper
+      %strong Events
+      %ul
+        - @facility.events.sort_by(&:date).each do |e|
+          %li
+            = e.date.strftime("%m/%d")
+            = link_to e.name, event_path(e)

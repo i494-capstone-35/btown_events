@@ -5,6 +5,7 @@ BtownEvents::Application.routes.draw do
   resources :categories, :only => [:index, :show]
 
   match '/increment' => 'events#increment'
+  match '/date' => 'events#date'
   resources :events, :only => [:index, :show]
 
   match '/monthly' => 'events#month'

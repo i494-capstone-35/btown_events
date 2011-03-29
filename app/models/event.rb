@@ -11,7 +11,8 @@ class Event < ActiveRecord::Base
     where(:start_time => (time.beginning_of_week..time.end_of_week)) }
   scope :months_events, lambda { |time| \
     where(:start_time => (time.beginning_of_month..time.end_of_month)) }
-  scope :categories, lambda { |c| where(:category => c)}
+  scope :categories, lambda { |c| where(:category => c) }
+  scope :categories_day, lambda { |c, d| where(:category => c, :date => d) }
 
   private
   def time_dates
@@ -48,7 +49,7 @@ class Event < ActiveRecord::Base
         when 'd' then
           (x * interval).days
         when 'w' then
-          (x * interval * 7).days
+          (x * interval).weeks
         when 'm' then
           (x * interval).months
         end

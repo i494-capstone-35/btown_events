@@ -1,1 +1,1 @@
-(function(){$(document).ready(function(){})}).call(this);
+(function(){$(document).ready(function(){var a,b;a=0;$("a#m_previous").click(function(){return b(-1)});$("a#m_next").click(function(){return b(1)});return b=function(c){a+=c;console.log(a);return $.ajax({url:"/date",data:{date:a}})}})}).call(this);
