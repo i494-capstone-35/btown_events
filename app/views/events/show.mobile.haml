@@ -1,8 +1,8 @@
 %div#main{:data => {:role => "content"}}
   %h3= @event.name
 
-  %ul#attributes{:data => {:role => "listview", :theme => "b", :inset => "true"}}
-      %li= @event.date.strftime("%h %d %Y")
-      %li= @event.category
-      - unless @event.description.nil?
-        %li= @event.description
+  %ul#attributes{:data => {:role => "listview", :theme => "b"}}
+    %li= @event.date.strftime("%h %d %Y")
+    %li= @event.category
+    - unless @event.description.nil?
+      %li= @event.description

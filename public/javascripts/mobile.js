@@ -1,22 +1,16 @@
 (function() {
   $(document).ready(function() {
-    /* m = parseInt $("#main")[0].getAttribute("data-message") */;    var m, move;
-    m = 0;
+    var m, move;
+    m = parseInt($("#main")[0].getAttribute("data-message"));
     $("a#m_previous").click(function() {
-      return move(-1);
+      return move(-1, true);
     });
     $("a#m_next").click(function() {
-      return move(1);
+      return move(1, false);
     });
-    return move = function(direction) {
+    return move = function(direction, slide) {
       m += direction;
-      console.log(m);
-      return $.ajax({
-        url: '/date',
-        data: {
-          "date": m
-        }
-      });
+      return $("body").load('/?date=' + m, $.mobile.changePage('/?date=' + m, "slide", slide, false, false));
     };
   });
 }).call(this);

@@ -1,17 +1,13 @@
 $(document).ready ->
-    /* m = parseInt $("#main")[0].getAttribute("data-message") */
-    m = 0
+    m = parseInt $("#main")[0].getAttribute("data-message")
 
     $("a#m_previous").click ->
-        move -1
+        move -1, true
 
     $("a#m_next").click ->
-        move 1
+        move 1, false
 
-    move = (direction) ->
+    move = (direction, slide) ->
         m += direction
-        console.log m
-        $.ajax
-            url: '/date'
-            data: {"date" : m}
-
+        $("body").load '/?date=' + m,
+            $.mobile.changePage '/?date=' + m, "slide", slide, false, false
