@@ -38,8 +38,32 @@ body #main {
     font-size: 2em;
     margin-right: 25px; }
   body #main #facility {
-    width: 960px;
+    width: 820px;
     margin: 0 auto; }
+    body #main #facility ul#facilities {
+      list-style-type: none;
+      text-align: center; }
+      body #main #facility ul#facilities li {
+        display: block;
+        float: left;
+        width: 140px;
+        height: 140px;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        background: #f2f2f2;
+        border: 1px solid #a6b5c3;
+        margin: 0 7px 5px; }
+        body #main #facility ul#facilities li:hover {
+          background: #d9d9d9; }
+        body #main #facility ul#facilities li a {
+          width: 100%;
+          display: block;
+          height: 100%;
+          padding-top: 55px; }
     body #main #facility #f_attributes {
       float: left;
       width: 50%; }

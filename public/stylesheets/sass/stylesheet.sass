@@ -44,8 +44,28 @@ body
         font-size: 2.0em
         margin-right: 25px
     #facility
-      width: 960px
+      width: 820px
       margin: 0 auto
+      ul#facilities
+        list-style-type: none
+        text-align: center
+        li
+          display: block
+          float: left
+          width: 140px
+          height: 140px
+          +transition
+          +border-radius(6px)
+          background: #f2f2f2
+          border: 1px solid #a6b5c3 
+          margin: 0 7px 5px
+          &:hover
+            background: #d9d9d9
+          a
+            width: 100%
+            display: block
+            height: 100%
+            padding-top: 55px
       #f_attributes
         float: left
         width: 50%

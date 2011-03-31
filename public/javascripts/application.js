@@ -1,7 +1,29 @@
 (function() {
   $(document).ready(function() {
-    var fade_categories, m, slide;
+    var fade_categories, highlightCategories, m, slide, url;
     m = 0;
+    url = location.pathname.split('/')[1];
+    highlightCategories = function() {
+      var path;
+      path = $("#sitemap li").filter(function() {
+        return $(this).text().toLowerCase().indexOf(url) !== -1;
+      });
+      $(path).find("a").css({
+        color: "white"
+      });
+      return $(path).css({
+        color: "black",
+        padding: "7px 13px",
+        'margin-right': "15px",
+        background: "#CC0000",
+        '-webkit-border-radius': "8px",
+        '-moz-border-radius': "8px",
+        'border-radius': "8px"
+      });
+    };
+    if (url !== '') {
+      highlightCategories(url);
+    }
     $("#previous a").click(function() {
       return slide("right", "left", -1);
     });
@@ -46,7 +68,7 @@
       return fade_categories("name");
     });
     fade_categories = function(sortMethod) {
-      var category, url;
+      var category;
       url = location.pathname;
       category = url.split('/')[2];
       $.ajax({
@@ -54,12 +76,13 @@
         data: {
           "sortMethod": sortMethod,
           "category": category
-        },
+        }
+      });
+      ({
         success: function(newList) {
-          return $("ul#categories").fadeOut("slow", function() {
-            $(this).html(newList);
-            return $(this).fadeIn("slow");
-          });
+          $("ul#categories").fadeOut("slow", function() {});
+          $(this).html(newList);
+          return $(this).fadeIn("slow");
         }
       });
       return false;

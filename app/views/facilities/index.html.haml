@@ -1,5 +1,4 @@
-%h1 Listing facilities
-
-- @facilities.each do |facility|
-  %ul
-    %li= link_to facility.name, facility_path(facility)
+#facility
+  - @facilities.each do |facility|
+    %ul#facilities
+      %li= link_to facility.name, facility_path(facility)
