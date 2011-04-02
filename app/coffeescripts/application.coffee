@@ -17,14 +17,14 @@ $(document).ready ->
             '-moz-border-radius': "8px"
             'border-radius': "8px"
         }
-    if url != ''
-        highlightCategories url
+    if(url != '')
+        highlightCategories(url)
 
     $("#previous a").click ->
-        slide "right", "left", -1
+        slide("right", "left", -1)
 
     $("#next a").click ->
-        slide "left", "right", 1
+        slide("left", "right", 1)
 
     slide = (dirOut, dirIn, marker) ->
         m += marker
@@ -32,24 +32,24 @@ $(document).ready ->
             url: '/increment'
             data: {"weeks" : m}
             success: (newTable) ->
-                /*$(newTable) is [<div>,ajaxytext,<table>]*/
+                /*$(newTable) == [<div>,ajaxytext,<table>]*/
                 month = $(newTable)[0]
                 table = $(newTable)[2]
                 $("p#month").fadeOut "slow", ->
                     # replace html to fadeIn properly. add class to remove margin
                     $("p#month").html(month).addClass("n_month")
-                    $("p#month").fadeIn "slow"
+                    $("p#month").fadeIn("slow")
                 $("table").hide "slide", {direction: dirOut}, 480, ->
-                    $(this).replaceWith table
+                    $(this).replaceWith(table)
                     $("table").show "slide", {direction: dirIn}, 300, ->
-                        $("#rando a").animate { opacity: 0 }, "fast"
+                        $("#rando a").animate({ opacity: 0 }, "fast")
         return false
 
     $("li a#sort_date").click ->
-        fade_categories "start_time"
+        fade_categories("start_time")
 
     $("li a#sort_name").click ->
-        fade_categories "name"
+        fade_categories("name")
 
     fade_categories = (sortMethod) ->
         url = location.pathname
@@ -63,7 +63,7 @@ $(document).ready ->
         success: (newList) ->
             $("ul#categories").fadeOut "slow", ->
             $(this).html(newList)
-            $(this).fadeIn "slow"
+            $(this).fadeIn("slow")
         return false
 
     $("#rando a").click ->

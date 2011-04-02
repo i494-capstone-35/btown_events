@@ -9,6 +9,7 @@
 
   %body
     %div#content{:data => {:role => "page"}}
-      %div{:data => {:role => "header"}, :role => {"" => "banner"}}
-        %h1= link_to  "B-Town Events ", '/'
+      %div{:data => {:role => "header", :theme => 'b'}, :role => {"" => "banner"}}
+        %h1 B-Town Events
+        = link_to '', '/', {:'data-role' => 'button', :'data-iconpos' => 'notext', :'data-icon' => 'home', :'data-direction' => 'reverse', :class => 'ui-btn-right'}
       = yield

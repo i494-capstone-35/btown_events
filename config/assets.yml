@@ -10,12 +10,13 @@ stylesheets:
 
 javascripts:
   libraries:
-    - public/javascripts/jquery-*.js
+    - public/javascripts/jquery-1.4.4.min.js
+    - public/javascripts/jquery-ui.1.8.10.js
   main:
     - public/javascripts/rails.js
     - public/javascripts/application.js
   mobile_libraries:
-    - public/javascripts/jquery-1.4.4*.js
+    - public/javascripts/jquery-1.5.2*.js
     - public/javascripts/jquery.mobile*.js
   mobile:
     - public/javascripts/mobile.js

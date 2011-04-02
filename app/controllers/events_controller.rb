@@ -11,10 +11,6 @@ class EventsController < ApplicationController
     @marker = Date.today.beginning_of_week
     @week_events = Event.weeks_events(@marker).sort_by(&:start_time)
 
-    @mobile_marker = params[:date].to_i || 0
-    @today = Date.today + @mobile_marker.days
-    @categories = Event.all.map(&:category).uniq.sort
-
     respond_to :html
   end
 
@@ -31,6 +27,17 @@ class EventsController < ApplicationController
     @weeks = (Time.days_in_month Date.current.month) / 7
     @extras = (Time.days_in_month Date.current.month) % 7
     @week_events = Event.weeks_events @marker
+
+    respond_to :html
+  end
+
+  def date
+    unless params[:year].nil?
+      @today = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+    else
+      @today = Date.today
+    end
+    @categories = Event.all.map(&:category).uniq.sort
 
     respond_to :html
   end

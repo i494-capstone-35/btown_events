@@ -1,0 +1,20 @@
+%div#day_header{:data => {:role => "header", :backbtn => "false", :theme => 'c'}}
+  - prev_day = @today - 1.days
+  = link_to (prev_day).strftime("%A"), 
+    "/date/#{prev_day.year}/#{prev_day.month}/#{prev_day.day}", 
+    {:'data-role' => 'button', :'data-icon' => 'arrow-l'}
+  %h1= ordinalize_date @today
+  - next_day = @today + 1.days
+  = link_to (next_day).strftime("%A"), 
+    "/date/#{next_day.year}/#{next_day.month}/#{next_day.day}",
+    {:'data-role' => 'button', :'data-icon' => 'arrow-r', :'data-iconpos' => 'right'}
+%div#main.nextDay{:data => {:role => "content"}}
+  - unless Event.where(:date => @today).empty?
+    %ul#categories{:data => {:role => "listview", :inset => "true", :'divider-theme' => 'b'}}
+      - @categories.each do |category|
+        - unless (Event.categories_day category, @today).empty?
+          %li{:data => {:role => "list-divider"}}= category
+          - (Event.categories_day category, @today).each do |event|
+            %li= link_to event.name, event_path(event)
+  - else
+    %h2 Nothing going on today.

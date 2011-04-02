@@ -1,11 +1,16 @@
 BtownEvents::Application.routes.draw do
+  # mobile
+  root :to => 'events#date', :constraints => {:user_agent => /Mobile|webOS|BlackBerry/}
+  match '/date/:year/:month/:day' => 'events#date', 
+    :constraints => {:user_agent => /Mobile|webOS|BlackBerry/}
+
+  # web
   root :to => 'events#index'
 
   match 'sort' => 'categories#sort'
   resources :categories, :only => [:index, :show]
 
   match '/increment' => 'events#increment'
-  match '/date' => 'events#date'
   resources :events, :only => [:index, :show]
 
   match '/monthly' => 'events#month'
