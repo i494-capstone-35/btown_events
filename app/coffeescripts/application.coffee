@@ -60,10 +60,10 @@ $(document).ready ->
                 "sortMethod" : sortMethod,
                 "category"   : category
             }
-        success: (newList) ->
-            $("ul#categories").fadeOut "slow", ->
-            $(this).html(newList)
-            $(this).fadeIn("slow")
+            success: (newList) ->
+                $("ul#categories").fadeOut "slow", ->
+                    $(this).html(newList)
+                    $(this).fadeIn("slow")
         return false
 
     $("#rando a").click ->

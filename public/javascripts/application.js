@@ -38,7 +38,7 @@
           "weeks": m
         },
         success: function(newTable) {
-          /*$(newTable) is [<div>,ajaxytext,<table>]*/;          var month, table;
+          /*$(newTable) == [<div>,ajaxytext,<table>]*/;          var month, table;
           month = $(newTable)[0];
           table = $(newTable)[2];
           $("p#month").fadeOut("slow", function() {
@@ -76,13 +76,12 @@
         data: {
           "sortMethod": sortMethod,
           "category": category
-        }
-      });
-      ({
+        },
         success: function(newList) {
-          $("ul#categories").fadeOut("slow", function() {});
-          $(this).html(newList);
-          return $(this).fadeIn("slow");
+          return $("ul#categories").fadeOut("slow", function() {
+            $(this).html(newList);
+            return $(this).fadeIn("slow");
+          });
         }
       });
       return false;
