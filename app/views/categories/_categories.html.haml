@@ -1,2 +1,6 @@
-- @category.each do |cat|
-  %li= link_to cat.name, event_path(cat)
+- if @category == 'Bar Special'
+  - @weekly_recurring.each do |category|
+    %li= link_to category.name, event_path(category)
+- else 
+  - @events.each do |event|
+    %li= link_to event.name, event_path(event)

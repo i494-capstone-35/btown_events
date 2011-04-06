@@ -14,6 +14,19 @@ class Event < ActiveRecord::Base
   scope :categories, lambda { |c| where(:category => c) }
   scope :categories_day, lambda { |c, d| where(:category => c, :date => d) }
 
+  # sort by attribute uniquely
+  # Event.uniq_by array_of_objects, &:attribute
+  def self.uniq_by(array)
+    array.inject({}) do |acc, obj|
+      value = yield(obj)
+      acc[value] ||= []
+      acc[value].push obj
+      acc
+    end.map do |(key, value)|
+      value.first
+    end
+  end
+
   private
   def time_dates
     unless start_time.nil?
