@@ -9,6 +9,8 @@ stylesheets:
     - public/stylesheets/mobile.css
 
 javascripts:
+  analytics:
+    - public/javascripts/g-analytics.js
   libraries:
     - public/javascripts/jquery-1.4.4.min.js
     - public/javascripts/jquery-ui*.js
