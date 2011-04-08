@@ -38,7 +38,8 @@
           "weeks": m
         },
         success: function(newTable) {
-          /*$(newTable) == [<div>,ajaxytext,<table>]*/;          var month, table;
+          /*$(newTable) == [<div>,ajaxytext,<table>]*/;
+          var month, table;
           month = $(newTable)[0];
           table = $(newTable)[2];
           $("p#month").fadeOut("slow", function() {

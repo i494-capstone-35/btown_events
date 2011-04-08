@@ -1,8 +1,18 @@
 %div#main{:data => {:role => "content"}}
   %h3= @event.name
 
-  %ul#attributes{:data => {:role => "listview", :theme => "b"}}
-    %li= @event.date.strftime("%h %d %Y")
-    %li= @event.category
+  %ul#attributes{:data => {:role => "listview", :theme => "d"}}
+    - unless @event.facility.nil?
+      %li= link_to "@ " + @event.facility.name, facility_path(@event.facility)
+    - if @event.start_time.blank?
+      %li= "From: #{@event.date.strftime("%h %d %Y")} Starts: TBA"
+    - else
+      %li= "From: #{@event.date.strftime("%h %d %Y")} #{@event.start_time.strftime("%R")}"
+    - if @event.end_time.blank?
+      %li= "Til: #{@event.date.strftime("%h %d %Y")} Ends: TBA"
+    - else
+      %li= "Til: #{@event.date.strftime("%h %d %Y")} #{@event.end_time.strftime("%R")}"
+    - unless @event.admission.nil?
+      %li= "Admission #{@event.admission}"
     - unless @event.description.nil?
       %li= @event.description

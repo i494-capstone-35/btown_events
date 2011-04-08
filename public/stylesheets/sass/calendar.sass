@@ -18,9 +18,8 @@
     line-height: 180px
     margin: 40px 0px 0px 0px
   p#month
-    font-size: 20px
+    text-align: center
     +title-ff
-    margin-left: 50px
   p#month.n_month
     margin-left: 0
   table
@@ -44,7 +43,7 @@
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
         +transition
         &:hover
-          background: #e0e0e0
+          #background: #e0e0e0
         #datebox
           margin: 2px 5px
           height: 100%
@@ -64,12 +63,15 @@
           clear: both
           list-style-type: none
           margin: 5px 10px 0px
+          li
+            padding: 2px 0px
       a.event
         text-decoration: none
         text-align: center
         font-size: 12px
         &:hover
-          background: yellow
+          text-decoration: underline
+          //background: yellow
           +transition
   #next
     float: left

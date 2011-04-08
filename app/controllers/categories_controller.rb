@@ -6,15 +6,17 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @events = Event.categories(params[:id]).sort_by(&sort_start_time)
+    #@events = Event.categories(params[:id]).sort_by(&sort_start_time)
+    @events = Event.where('date >= ? AND category = ?', Date.today, params[:id])
     @category = @events.first.category
-    @weekly_recurring = Event.uniq_by(@events.sort_by(&:date), &:name)
+    @weekly_recurring = Event.uniq_by(@events.sort_by(&:date), &:name).sort_by(&sort_start_time)
 
     respond_to :html
   end
 
   def sort
-    @events = Event.categories(CGI.unescape params[:category])
+    category = CGI.unescape(params[:category])
+    @events = Event.where('date >= ? AND category = ?', Date.today, category)
     sort = params[:sortMethod]
     @events = \
       if sort == "start_time"

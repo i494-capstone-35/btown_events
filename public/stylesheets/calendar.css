@@ -33,9 +33,8 @@
     line-height: 180px;
     margin: 40px 0px 0px 0px; }
   #calendar_container p#month {
-    font-size: 20px;
-    font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
-    margin-left: 50px; }
+    text-align: center;
+    font-family: "Chewy", "Helvetica Neue", Helvetica, sans; }
   #calendar_container p#month.n_month {
     margin-left: 0; }
   #calendar_container table {
@@ -65,7 +64,7 @@
         -webkit-transition: all 0.2s ease-in-out;
         -moz-transition: all 0.2s ease-in-out; }
         #calendar_container table tr td.day:hover {
-          background: #e0e0e0; }
+          #background: #e0e0e0; }
         #calendar_container table tr td.day #datebox {
           margin: 2px 5px;
           height: 100%;
@@ -87,12 +86,14 @@
           clear: both;
           list-style-type: none;
           margin: 5px 10px 0px; }
+          #calendar_container table tr td.day ul li {
+            padding: 2px 0px; }
       #calendar_container table tr a.event {
         text-decoration: none;
         text-align: center;
         font-size: 12px; }
         #calendar_container table tr a.event:hover {
-          background: yellow;
+          text-decoration: underline;
           transition: all 0.2s ease-in-out;
           -webkit-transition: all 0.2s ease-in-out;
           -moz-transition: all 0.2s ease-in-out; }

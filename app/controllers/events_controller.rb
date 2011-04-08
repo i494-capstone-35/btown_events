@@ -20,17 +20,6 @@ class EventsController < ApplicationController
     respond_to :html
   end
 
-  def month
-    @count = Event.count
-    @marker = Date.today.beginning_of_month.beginning_of_week
-    @month_marker = Date.today.beginning_of_month
-    @weeks = (Time.days_in_month Date.current.month) / 7
-    @extras = (Time.days_in_month Date.current.month) % 7
-    @week_events = Event.weeks_events @marker
-
-    respond_to :html
-  end
-
   def date
     unless params[:year].nil?
       @today = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
@@ -38,6 +27,8 @@ class EventsController < ApplicationController
       @today = Date.today
     end
     @categories = Event.all.map(&:category).uniq.sort
+    @events = Event.where(:date => @today)
+    @random = @events[rand(@events.count)]
 
     respond_to :html
   end

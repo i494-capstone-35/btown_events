@@ -1,0 +1,21 @@
+%div#main{:data => {:role => "content"}}
+  %h3= @facility.name
+
+  - if File.exist?(Rails.root + "public/images/logos/#{@facility.image}.jpg")
+    = image_tag "logos/#{@facility.image}.jpg"
+
+  %ul#attributes{:data => {:role => "listview", :theme => "d"}}
+    %li= link_to_unless @facility.address.nil?, "Address - #{@facility.address}", "http://maps.google.com/?q=#{@facility.address}"    
+    %li= link_to_unless @facility.number.nil?, "Phone Number - #{@facility.number}", "tel://#{@facility.number}"
+    %li= link_to_unless @facility.website.nil?, "Website - #{@facility.website}", @facility.website
+
+  %p#space
+  - unless @facility.events.empty?
+    %h3 Events
+    %ul#events{:data => {:inset => "true", :role => "listview", :filter => "true"}}
+      - @facility.events.sort_by(&:date).each do |event|
+        %li
+          = link_to(event) do
+            %h3= event.name 
+            %p.ul-li-aside= event.date.strftime("%m/%d")
+

@@ -13,8 +13,6 @@ BtownEvents::Application.routes.draw do
   match '/increment' => 'events#increment'
   resources :events, :only => [:index, :show]
 
-  match '/monthly' => 'events#month'
-
   match '/places' => 'facilities#index', :as => "facilities", :controller => :facility
   match '/places/:id' => 'facilities#show', :as => "facility", :controller => :facility
 
