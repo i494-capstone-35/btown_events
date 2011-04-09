@@ -24,16 +24,16 @@
     cursor: pointer; }
 
 #calendar_container {
-  margin-top: 30px;
   width: 1260px;
-  margin: 30px auto 0; }
+  margin: 0 auto; }
   #calendar_container #previous {
     float: left;
     width: 40px;
     line-height: 180px;
-    margin: 40px 0px 0px 0px; }
+    margin: 60px 0px 0px 0px; }
   #calendar_container p#month {
     text-align: center;
+    font-size: 27px;
     font-family: "Chewy", "Helvetica Neue", Helvetica, sans; }
   #calendar_container p#month.n_month {
     margin-left: 0; }
@@ -91,7 +91,7 @@
       #calendar_container table tr a.event {
         text-decoration: none;
         text-align: center;
-        font-size: 12px; }
+        font-size: 14px; }
         #calendar_container table tr a.event:hover {
           text-decoration: underline;
           transition: all 0.2s ease-in-out;

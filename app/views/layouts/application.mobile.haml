@@ -14,6 +14,6 @@
         = link_to '', '/', {:'data-role' => 'button', :'data-iconpos' => 'notext', :'data-icon' => 'home', :'data-direction' => 'reverse', :class => 'ui-btn-right'}
       = yield
 
-      %div{:"data-role" => "footer"}
+      %div{:"data-role" => "footer", :'data-position' => 'fixed'}
         %div{:"data-role" => "navbar"}
           = yield :navbar

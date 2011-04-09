@@ -1,21 +1,32 @@
-%h2= @event.name
-- if @event.start_time.blank?
-  %h3= "#{@event.date.strftime("%h %d %Y")} Starts: TBA"
-- else
-  %h3= "#{@event.date.strftime("%h %d %Y")} #{@event.start_time.strftime("%R")}"
-- if @event.end_time.blank?
-  %h3= "#{@event.date.strftime("%h %d %Y")} Ends: TBA"
-- else
-  %h3= "#{@event.date.strftime("%h %d %Y")} #{@event.end_time.strftime("%R")}"
+#event
+  %h2= @event.name
+  #time
+    %h3= ordinalize_date(@event.date) + " "
+    - if @event.start_time.blank?
+      %h3= " TBA"
+    - else
+      %h3= " #{@event.start_time.strftime("%l:%M %p -")}"
+    - if @event.end_time.blank?
+      %h3= " TBA"
+    - else
+      %h3= " #{@event.end_time.strftime("%l:%M %p")}"
 
-%div#attributes
-  %ul
-    %li= "Admission - #{@event.admission}" unless @event.admission.nil?
-    %li= link_to "Category - #{@event.category}", category_path(@event.category)
-    - unless @event.address.nil?
-      %li= link_to "Address  - #{@event.address}", 
-        "http://maps.google.com/?q=#{@event.address}"
-    - unless @event.facility.nil?
-      %li= link_to "Facility - #{@event.facility.name}", facility_path(@event.facility)
+  %div#attributes
+    %ul
+      - unless @event.facility.nil?
+        %li
+          Place
+          =link_to @event.facility.name, facility_path(@event.facility)
+      - unless @event.admission.nil?
+        %li 
+          Admission
+          %span #{@event.admission}
+      %li
+        Category
+        =link_to @event.category, category_path(@event.category)
+      - unless @event.address.nil?
+        %li 
+          Address
+          =link_to @event.address, "http://maps.google.com/?q=#{@event.address}"
 
-%p= @event.description
+  %p= @event.description

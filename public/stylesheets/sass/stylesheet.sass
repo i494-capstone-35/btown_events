@@ -34,8 +34,8 @@ body
           background: none
   #main
     width: 100%
-    padding: 20px 0
     float: left
+    margin-top: -20px
     ul#sort
       li
         display: inline
@@ -43,9 +43,52 @@ body
         text-decoration: none
         font-size: 2.0em
         margin-right: 25px
+    #event
+      width: 600px
+      margin: 10px auto 0
+      overflow: hidden
+      h2
+        margin-bottom: 0
+        float: left
+      #time
+        clear: both
+        h3
+          float: left
+          padding-right: 4px
+      #attributes
+        float: left
+        width: 100%
+        ul
+          list-style-type: none
+          text-align: center
+          margin: 0 auto
+          overflow: hidden
+          li
+            display: block
+            float: left
+            width: 140px
+            height: 140px
+            +transition
+            +border-radius(6px)
+            background: #f2f2f2
+            border: 1px solid #a6b5c3 
+            margin: 0 7px 5px
+            &:hover
+              background: #d9d9d9
+            a
+              width: 100%
+              display: block
+              height: 100%
+              padding-top: 45px
+            span
+              width: 100%
+              display: block
+              padding-top: 25px
+      p
+        float: left
     #facility
       width: 820px
-      margin: 0 auto
+      margin: 40px auto 0
       ul#facilities
         list-style-type: none
         text-align: center
