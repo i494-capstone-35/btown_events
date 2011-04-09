@@ -9,5 +9,5 @@
           .day= @marker.strftime("%A")
           - @marker += 1.days
           %ul
-            - @week_events.select { |e| e.start_time.day == day }.each do |event|
+            - @week_events.select { |e| e.date.day == day }.each do |event|
               %li= link_to event.name, event_path(event), :class => 'event'

@@ -14,8 +14,9 @@
     %h3 Events
     %ul#events{:data => {:inset => "true", :role => "listview", :filter => "true"}}
       - @facility.events.sort_by(&:date).each do |event|
-        %li
-          = link_to(event) do
-            %h3= event.name 
-            %p.ul-li-aside= event.date.strftime("%m/%d")
+        - unless event.date < Date.today
+          %li
+            = link_to(event) do
+              %h3= event.name 
+              %p.ul-li-aside= event.date.strftime("%m/%d")
 

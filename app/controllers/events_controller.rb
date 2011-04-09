@@ -2,14 +2,14 @@ class EventsController < ApplicationController
   def increment
     n = params[:weeks].to_i
     @marker = Date.today.beginning_of_week + n.weeks
-    @week_events = Event.weeks_events(@marker).sort_by(&:start_time)
+    @week_events = Event.weeks_events(@marker).sort_by(&sort_start_time)
     render :partial => 'week_box'
   end
 
   def index
     @count = Event.count
     @marker = Date.today.beginning_of_week
-    @week_events = Event.weeks_events(@marker).sort_by(&:start_time)
+    @week_events = Event.weeks_events(@marker).sort_by(&sort_start_time)
 
     respond_to :html
   end
@@ -31,5 +31,12 @@ class EventsController < ApplicationController
     @random = @events[rand(@events.count)]
 
     respond_to :html
+  end
+
+  private
+  def sort_start_time
+    Proc.new do |event|
+      event.start_time.try(:strftime, "%R") || "0:00" 
+    end
   end
 end

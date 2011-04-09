@@ -1,6 +1,10 @@
 - if @category == 'Bar Special'
   - @weekly_recurring.each do |category|
     %li= link_to category.name, event_path(category)
-- else 
+- elsif @events.empty?
+  %h3 Sorry, but there's no upcoming events in the #{@category} category.
+  - if @category == "Food"
+    %p Check out Chipotle on Kirkwood though. It's delicious.
+- else
   - @events.each do |event|
     %li= link_to event.name, event_path(event)

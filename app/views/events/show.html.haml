@@ -2,14 +2,8 @@
   %h2= @event.name
   #time
     %h3= ordinalize_date(@event.date) + " "
-    - if @event.start_time.blank?
-      %h3= " TBA"
-    - else
-      %h3= " #{@event.start_time.strftime("%l:%M %p -")}"
-    - if @event.end_time.blank?
-      %h3= " TBA"
-    - else
-      %h3= " #{@event.end_time.strftime("%l:%M %p")}"
+    %h3= blank_time(@event.start_time) + " - "
+    %h3= blank_time(@event.end_time)
 
   %div#attributes
     %ul

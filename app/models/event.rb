@@ -8,9 +8,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :date
 
   scope :weeks_events, lambda { |time| \
-    where(:start_time => (time.beginning_of_week..time.end_of_week)) }
-  scope :months_events, lambda { |time| \
-    where(:start_time => (time.beginning_of_month..time.end_of_month)) }
+    where(:date => (time.beginning_of_week..time.end_of_week)) }
   scope :categories, lambda { |c| where(:category => c) }
   scope :categories_day, lambda { |c, d| where(:category => c, :date => d) }
 
@@ -24,6 +22,12 @@ class Event < ActiveRecord::Base
       acc
     end.map do |(key, value)|
       value.first
+    end
+  end
+
+  def sort_start_time
+    Proc.new do |event|
+      event.start_time.try(:strftime, "%R") || "0:00" 
     end
   end
 

@@ -21,4 +21,4 @@ javascripts:
     - public/javascripts/jquery-1.5.2*.js
     - public/javascripts/jquery.mobile*.js
   mobile:
-    - public/javascripts/mobile.js
+    #- public/javascripts/mobile.js

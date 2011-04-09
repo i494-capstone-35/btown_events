@@ -7,9 +7,11 @@ class CategoriesController < ApplicationController
 
   def show
     #@events = Event.categories(params[:id]).sort_by(&sort_start_time)
-    @events = Event.where('date >= ? AND category = ?', Date.today, params[:id])
-    @category = @events.first.category
-    @weekly_recurring = Event.uniq_by(@events.sort_by(&:date), &:name).sort_by(&sort_start_time)
+    @events = Event.where('date >= ? AND category = ?', Date.today, params[:id]).sort_by(&:date)
+    @category = params[:id]
+    @weekly_recurring = Event.uniq_by(@events, &:name).sort_by do |a| 
+      [a.date, sort_start_time.call(a)]
+    end
 
     respond_to :html
   end
@@ -18,20 +20,20 @@ class CategoriesController < ApplicationController
     category = CGI.unescape(params[:category])
     @events = Event.where('date >= ? AND category = ?', Date.today, category)
     sort = params[:sortMethod]
-    @events = \
-      if sort == "start_time"
-        @events.sort_by(&sort_start_time)
-      else
-        @events.sort_by(&sort.to_sym)
-      end
+    if sort == "start_time"
+      @events = @events.sort_by(&:date)
+    else
+      @events = @events.sort_by(&sort.to_sym)
+    end
     @category = @events.first.category
-    @weekly_recurring = Event.uniq_by(@events.sort_by(&:date), &:name)
+    @weekly_recurring = Event.uniq_by(@events, &:name).sort_by do |a| 
+      [a.date, sort_start_time.call(a)]
+    end
 
     render :partial => 'categories'
   end
 
   private
-
   def sort_start_time
     Proc.new do |event|
       event.start_time.try(:strftime, "%R") || "0:00" 

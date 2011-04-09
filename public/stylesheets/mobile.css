@@ -1,2 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:bold);
+* {
+  font-family: Ubuntu, Arial, sans; }
+
 p#space {
   height: 20px; }
