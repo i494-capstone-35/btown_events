@@ -1,0 +1,13 @@
+%p#month.heading= @marker.strftime("%B")
+%table
+  %tr.week 
+    - 7.times do
+      %td.day
+        #datebox
+          - day = @marker.day
+          .date= day
+          .day= @marker.strftime("%A")
+          - @marker += 1.days
+          %ul
+            - @week_events.select { |e| e.date.day == day }.each do |event|
+              %li= link_to event.name, event_path(event), :class => 'event'
