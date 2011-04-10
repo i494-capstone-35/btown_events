@@ -90,27 +90,46 @@ body #main {
     body #main #facility ul#facilities {
       list-style-type: none;
       text-align: center; }
-      body #main #facility ul#facilities li {
-        display: block;
-        float: left;
+      body #main #facility ul#facilities .darken {
+        background-color: #444444;
         width: 140px;
         height: 140px;
-        transition: all 0.2s ease-in-out;
-        -webkit-transition: all 0.2s ease-in-out;
-        -moz-transition: all 0.2s ease-in-out;
+        float: left;
+        margin: 0 7px 5px;
         -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
-        border-radius: 6px;
-        background: #f2f2f2;
-        border: 1px solid #a6b5c3;
-        margin: 0 7px 5px; }
-        body #main #facility ul#facilities li:hover {
-          background: #d9d9d9; }
-        body #main #facility ul#facilities li a {
-          width: 100%;
+        border-radius: 6px; }
+        body #main #facility ul#facilities .darken li {
           display: block;
-          height: 100%;
-          padding-top: 55px; }
+          float: left;
+          width: 140px;
+          height: 140px;
+          transition: all 0.2s ease-in-out;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -webkit-border-radius: 6px;
+          -moz-border-radius: 6px;
+          border-radius: 6px;
+          background-position: center center;
+          background-color: #f2f2f2;
+          border: 1px solid #a6b5c3;
+          margin: 0 7px 5px -1px; }
+          body #main #facility ul#facilities .darken li:hover {
+            opacity: 0.6;
+            filter: alpha(opacity=60); }
+          body #main #facility ul#facilities .darken li a {
+            width: 100%;
+            display: block;
+            height: 100%;
+            padding-top: 55px;
+            font-size: 18px;
+            font-weight: strong;
+            color: black; }
+            body #main #facility ul#facilities .darken li a.shadow {
+              color: white;
+              text-shadow: 2px 3px 3px black; }
+              body #main #facility ul#facilities .darken li a.shadow:hover {
+                font-size: 23px; }
     body #main #facility #f_attributes {
       float: left;
       width: 50%; }

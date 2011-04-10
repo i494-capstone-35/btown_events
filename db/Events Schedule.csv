@@ -1,4 +1,4 @@
-Event Name,Facility,Date,Start Time,End Time,Address,Recurrence,Category,Festival,Admission,Description
+Event,Facility,Date,Start Time,End Time,Address,Recurrence,Category,Festival,Admission,Description
 Lil Wayne,Indiana University Auditorium,4/12/2011,19:00:00,,"1211 East 7th Street, Bloomington, IN 47405",,Entertainment,Little 500
 $2 Tuesday,Kilroy's on Kirkwood,4/5/2011,19:00:00,4/6/2011 2:30:00,"502 E. Kirkwood Ave, Bloomington, IN 47408",1w,Bar Special,,,"$2 Tuesday, everything under $6 is $2 (some exceptions-patron esp. Does not include food or draft beer) "
 Indiana Football vs Indiana State,Memorial Stadium,9/1/2012,,,"701 East 17th Street, Bloomington, IN 47408",,Sports
@@ -92,7 +92,7 @@ Bloomington, IN 47405",,Entertainment,,Regular Price Single Ticket: $22.00; Stud
 Anything Goes,Lee Norvell Theatre and Drama,4/23/2011,19:30:00,,"275 North Jordan Avenue,
 Bloomington, IN 47405",,Entertainment,,Regular Price Single Ticket: $22.00; Students: $15.00; Senior Citizens: $16.00,"This lively musical comedy spoofs ship-board romances and features a stowaway, a sexy evangelist turned night club singer, a Wall Street banker, and a notorious crook disguised as a minister. With hits like ""Anything Goes,"" ""You’re the Top,"" ""I Get a Kick Out of You,"" ""Friendship,"" ""It’s De-Lovely,"" and ""Blow, Gabriel, Blow,"" this frothy, funny, light-hearted romp, is great family fun!"
 6th Annual IU Mini Marathon and 5K Run/Walk,,4/2/2011,,,IU Campus and Downtown Bloomington,,Recreation
-Bloomington Handmade Market,Bloomington Convention Center,4/2/2011,10:00:00,16:00:00,"302 College Avenue, Bloomington, IN 47408",,Food,,FREE
+Bloomington Handmade Market,Bloomington Convention Center,4/2/2011,10:00:00,16:00:00,"302 College Avenue, Bloomington, IN 47408",,Recreation,,FREE
 IU Circle of Life Mini-Marathon,Race Starts and Finishes in the Area Around Memorial Stadium and Assembly Hall on the North Side of Campus,4/2/2011,8:00:00,,,,Recreation,,Early Registration: $40; Faculty/Staff/Alumni/Students: $45; General Public: $50
 Pokey Lafarge & The South City Three (Third Man Records),The Bishop,4/3/2011,20:00:00,,"123 South Walnut Street, Bloomington, IN 47404",,Bar Special,,$5
 Be More Awards!,Buskirk Chumley Theater,4/5/2011,19:00:00,20:30:00,"114 East Kirkwood Avenue
@@ -428,9 +428,53 @@ Glowfest,Bell Tower Fields,4/14/2011,18:00:00,,"1200 North Jordan, Bloomington, 
 ",,Music,Little 500,$35 at gate; $70 VIP,"Indiana University's first outdoor Little 500 music festival is back and bigger this year!  GLOWfest will feature the most advanced lighting and sound setup for any Little 500 show to date making for an unforgettable concert going experience. Loud music and bright lights will light up the night sky of the bell-tower fields at 17th and Jordan on Thursday, April 14th of Little 500 week.  GLOWfest is proud to announce Susan G Komen For The Cure as our philanthropic partner this year!
 
 "
-Little 500 Race - Women,Bill Armstrong Stadium,4/15/2011,16:00:00,,,,Recreation,Little 500,Adult - $15; Child under 12 - $5,"The Little 500 is the biggest intramural event on the IU campus and the largest collegiate bike race in the United States. Riders compete in four-person teams in separate races for men and women around a quarter-mile track.
+Little 500 Race - Women,Bill Armstrong Stadium,4/15/2011,16:00:00,,"1601 N Fee Ln, Bloomington, IN 47408",,Recreation,Little 500,Adult - $15; Child under 12 - $5,"The Little 500 is the biggest intramural event on the IU campus and the largest collegiate bike race in the United States. Riders compete in four-person teams in separate races for men and women around a quarter-mile track.
 
 "
 Little 500 Race - Men,Bill Armstrong Stadium,4/16/2011,14:00:00,,"1601 N Fee Ln, Bloomington, IN 47408",,Recreation,Little 500,Adult - $20; Child under 12 - $5,"The Little 500 is the biggest intramural event on the IU campus and the largest collegiate bike race in the United States. Riders compete in four-person teams in separate races for men and women around a quarter-mile track.
 
 "
+Trojan Horse Drink Specials,The Trojan Horse,4/11/2011,11:00:00,23:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,Local Draft Pints $3
+Trojan Horse Drink Specials,The Trojan Horse,4/12/2011,11:00:00,23:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,"Cadillac Margarita - Sauza, Grand Marnier and Cointreau $4.50; Low Rider - Patron and a splash of Pico de Gallo $4.50"
+Trojan Horse Drink Specials,The Trojan Horse,4/13/2011,11:00:00,23:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,"Painkiller - Pusser's Rum with cocunut, orange, and pineapple juice $4.50"
+Trojan Horse Drink Specials,The Trojan Horse,4/14/2011,11:00:00,23:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,"Mojito - Mint, Lime, and Bacardi Silver Rum $4.50; Caipirinha - Cachaca Brazillian Rum distilled from Suger Cane Juice $4.50"
+Trojan Horse Drink Specials,The Trojan Horse,4/17/2011,11:30:00,22:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,Mexicali Bloody Mary - Absolut Colleen's secret blend of spices - $4.50
+1/2 Price Bottle Wine @ Trojan Horse,The Trojan Horse,4/12/2011,11:00:00,23:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,1/2 Price Bottle of Wine
+1/2 Price Bottle Wine @ Trojan Horse,The Trojan Horse,4/14/2011,11:00:00,23:00:00,"100 East Kirkwood Avenue, Bloomington, IN 47408",1w,Bar Special,,,1/2 Price Bottle of Wine
+Coaches Drink Specials,Coaches Bar & Grill,4/11/2011,16:30:00,23:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,$5.00 Express Lunch (11:30am - 2pm); $5.25 32oz Domestic Mini Pitchers; $4.00 Craft Pints
+Coaches Drink Specials,Coaches Bar & Grill,4/12/2011,16:30:00,23:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,$5.00 Express Lunch (11:30am - 2pm); $6.00 Ketel One Cosmos; $2.50 PBR Pints
+Coaches Drink Specials,Coaches Bar & Grill,4/13/2011,16:30:00,23:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,$5.00 Express Lunch (11:30am - 2pm); 40 cent Chicken Wings; $2.50 Domestic Bottles
+Coaches Drink Specials,Coaches Bar & Grill,4/14/2011,16:30:00,23:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,"$5.00 Express Lunch (11:30am - 2pm); $5.00 Irish Car Bombs; $2.50 PBR Pints
+"
+Coaches Drink Specials,Coaches Bar & Grill,4/15/2011,16:30:00,24:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,$5.00 Express Lunch (11:30am - 2pm); 1/2 Off Fish; $8.00 48oz Domestic Pitcher; $5.00 PB&J
+Coaches Drink Specials,Coaches Bar & Grill,4/16/2011,11:00:00,24:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,$12.00 Domestic Buckets (5); $3.00 Long Island
+Coaches Drink Specials,Coaches Bar & Grill,4/17/2011,11:00:00,22:00:00,"245 North College Avenue, Bloomington, IN 47404",1w,Bar Special,,,$3.75 23oz Domestic Draft; $4.00 Smirnoff Bloody Mary; $4.00 Smirnoff Screw Driver
+Bear's Place Drink Special,Bear's Place,4/11/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,Large Pitchers of Miller Lite $6.00; 32oz Pitchers of Skip & Go Naked $5.50; All Ice Cream Drinks $5.00
+Bear's Place Drink Special,Bear's Place,4/12/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,Premium Pints $2.50; Domestic Pints $2.00; 20oz Hairy Bear $4.00; Jameson $3.50
+Bear's Place Drink Special,Bear's Place,4/13/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,U-Call It Well Drinks (Add .25 for Tequila) $2.50; Pitchers of New Castle $9.00; 12oz Bottles of PBR $2.00; Long Island Pint $3.25
+Bear's Place Drink Special,Bear's Place,4/14/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,Hairy Bear $7.00; Hairy Beaver $6.00; Long Islands $5.50; 32oz Domestic Pitchers $3.50
+Bear's Place Drink Special,Bear's Place,4/15/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,22oz Domestic Bottles $3.25; Stoli $3.00; Pitcher of Upland Wheat $9.00
+Bear's Place Drink Special,Bear's Place,4/16/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,"Large Pitchers Bud, Bud Light $6.00; 32oz Jamaican Sunset $5.50; Stoli $3.00"
+Bear's Place Drink Special,Bear's Place,4/17/2011,,,"1316 East 3rd Street, Bloomington, IN 47401",1w,Bar Special,,,Domestic Pints $2.00; Premium Pints $2.50
+Megan Jean & The KFB,Bear's Place,4/12/2011,21:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,General $5,Music by Megan Jean & The KFB
+The Keith Karns Big Band Tribute to Charles Mingus,Bear's Place,4/14/2011,17:30:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,General $5,Jazz Fables presents: The Keith Karns Big Band plays a tribute to Charles Mingus
+Denise Sherman & The Beat Angels,Bear's Place,4/15/2011,18:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,General $4,Bear's Place Blues happy hour presents: Denise Sherman & The Beat Angels
+"Mike Vinopal's Bad Band, Millbranch String Theory, Zion Crossroads",Bear's Place,4/15/2011,22:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,General $5,"Music by Mike Vinopal's Bad Band, Millbranch String Theory, Zion Crossroads"
+"Kris Shaw, Zan",Bear's Place,4/16/2011,20:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Comedy,,General $7,HEADLINER: Kris Shaw Website: www.krisshaw.com FEATURE/MIDDLE: Zan Website: www.zancomedy.com
+"Kris Shaw, Zan",Bear's Place,4/16/2011,22:30:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Comedy,,General $7,HEADLINER: Kris Shaw Website: www.krisshaw.com FEATURE/MIDDLE: Zan Website: www.zancomedy.com
+Ryder Film!,Bear's Place,4/17/2011,19:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Entertainment,,,Bear's Place presents: Ryder Film!
+Karaoke @ Bear's Place,Bear's Place,4/15/2011,21:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",1w12,Entertainment,,,Karaoke @ Bear's Place every Thursday Night
+The Saxophone Cartel,Bear's Place,4/21/2011,17:30:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,General $6,"Jazz Fables presents: From NYC - The Saxophone Cartel
+"
+The Blues Riverias,Bear's Place,4/22/2011,18:00:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,General $4,Bear's Place Blues Happy Hour presents: The Blues Riverias
+Girls Rock! Cancer Benefit,Bear's Place,4/22/2011,21:30:00,,"1316 East 3rd Street, Bloomington, IN 47401",,Music,,,Bear's Place presents: Neon Love Life (Indy); Vanity Theft (Dayton); Beta Male (Indy)
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/11/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,$1 OFF the 23oz listed price for MUG CLUB Members; $5 U-Call Wells double shot 24oz MUG CLUB; $2.50 U-Call Wells; $2.50 16oz Coors Light & Miller Lite Pints; $5 Red Bull Well Drinks; $10 48oz Sam Adams Pitchers; $10 All You Can Eat Wings every Monday; 1/2 Price Apps 9pm-Close
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/12/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,"$1 OFF the 23oz listed price for MUG CLUB Members; $5 U-Call Wells double shot 24oz MUG CLUB; $5 48oz U-Call Select Draft Pitchers (excludes: Guinness, Stella, Bass, Smithwicks, Harp, etc.); $2 Domestic Bottles; $6 Martinis; 1/2 Price Apps 9pm-Close"
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/13/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,"$1 OFF the 23oz listed price for MUG CLUB Members; $5 U-Call Wells double shot 24oz MUG CLUB; $6 48oz Coors Light and Miller Lite Pitchers; $6 48oz Vodka, Rum & Whiskey Pitchers; $9 48oz Bud Light and Microbrew Pitchers; $9 48oz Jessie's Sweet Tea Pitchers; $9 48oz Margarita Pitchers; 1/2 Price Apps 9pm-Close"
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/14/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,$1 OFF the 23oz listed price for MUG CLUB Members; $5 U-Call Wells double shot 24oz MUG CLUB; $2 U-Call Wells; $2.50 16oz Coors Light & Miller Lite Pints; $3.50 16oz Bud Light & Microbrew Pints; $5 Red Bull Well Drinks; 1/2 Price Apps 9pm-Close
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/15/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,1/2 Price Apps 10pm-Close
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/16/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,$5 MoFo Mary Bar; 1/2 Price Apps 10pm-Close
+Scotty's Brewhouse Bar Specials,Scotty's Brewhouse,4/17/2011,,,"302 North Walnut Street, Bloomington, IN 47404",1w,Bar Special,,,"$1 OFF the 23oz listed price for MUG CLUB Members; $5 U-Call Wells double shot 24oz MUG CLUB; $2.50 16oz Coors Light & Miller Lite Pints; $5 MoFo Mary Bar; $6 48oz Vodka, Rum & Whiskey Pitchers; $9 48oz Jessie's Sweet Tea Pitchers; Kids Eat Free every Sunday!; 1/2 Price Apps 9pm-Close"
+Little Fifty - Men's,Haugh Track,4/14/2011,19:00:00,,"East of North Fee Lane across from Assembly Hall and Gladstein Fieldhouse, Bloomington, IN 47406",,Recreation,Little 500,,"The Little Fifty is the runner's version of the Little 500. Twenty-five teams of four runners each, in both men's and women's races, compete in a 50-lap relay. Any IU Bloomington undergraduate student who is a non-varsity runner may compete."
+Little Fifty - Women's,Haugh Track,4/14/2011,21:00:00,,"East of North Fee Lane across from Assembly Hall and Gladstein Fieldhouse, Bloomington, IN 47406",,Recreation,Little 500,,"The Little Fifty is the runner's version of the Little 500. Twenty-five teams of four runners each, in both men's and women's races, compete in a 50-lap relay. Any IU Bloomington undergraduate student who is a non-varsity runner may compete."
+Wiz Khalifa Live,ZBT/Sigma Alpha Mu Lot,4/15/2011,19:00:00,,"1500 North Jordan Avenue, Bloomington, IN 47406",,Music,Little 500,,Artist Wiz Khalifa performs live for Little 500!

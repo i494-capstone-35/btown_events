@@ -1,8 +1,8 @@
 %div#main{:data => {:role => "content"}}
   %h3= @facility.name
 
-  - if File.exist?(Rails.root + "public/images/logos/#{@facility.image}.jpg")
-    = image_tag "logos/#{@facility.image}.jpg"
+  - if File.exist?(Rails.root + "public/images/logos/#{@facility.image}.png")
+    = image_tag "logos/#{@facility.image}.png"
   %p#space
 
   %ul#attributes{:data => {:role => "listview", :theme => "d"}}

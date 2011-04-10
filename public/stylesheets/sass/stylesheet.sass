@@ -92,23 +92,40 @@ body
       ul#facilities
         list-style-type: none
         text-align: center
-        li
-          display: block
-          float: left
+        .darken
+          background-color: #444
           width: 140px
           height: 140px
-          +transition
-          +border-radius(6px)
-          background: #f2f2f2
-          border: 1px solid #a6b5c3 
+          float: left
           margin: 0 7px 5px
-          &:hover
-            background: #d9d9d9
-          a
-            width: 100%
+          +border-radius(6px)
+          li
             display: block
-            height: 100%
-            padding-top: 55px
+            float: left
+            width: 140px
+            height: 140px
+            +transition
+            +border-radius(6px)
+            background-position: center center
+            background-color: #f2f2f2
+            border: 1px solid #a6b5c3 
+            margin: 0 7px 5px -1px
+            &:hover
+              opacity: 0.6
+              filter: alpha(opacity=60)
+            a
+              width: 100%
+              display: block
+              height: 100%
+              padding-top: 55px
+              font-size: 18px
+              font-weight: strong
+              color: black
+              &.shadow
+                color: white
+                text-shadow: 2px 3px 3px black
+                &:hover
+                  font-size: 23px
       #f_attributes
         float: left
         width: 50%
