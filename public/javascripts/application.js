@@ -31,15 +31,24 @@
       return slide("left", "right", 1);
     });
     slide = function(dirOut, dirIn, marker) {
+      var category, path;
+      if ($("p#category").length === 1) {
+        category = $("p#category")[0].innerHTML;
+      }
       m += marker;
+      if ($("p#category").length === 1) {
+        path = '/cat_increment';
+      } else {
+        path = 'increment';
+      }
       $.ajax({
-        url: '/increment',
+        url: path,
         data: {
-          "weeks": m
+          "weeks": m,
+          "category": category
         },
         success: function(newTable) {
-          /*$(newTable) == [<div>,ajaxytext,<table>]*/;
-          var month, table;
+          /*$(newTable) == [<div>,ajaxytext,<table>]*/;          var month, table;
           month = $(newTable)[0];
           table = $(newTable)[2];
           $("p#month").fadeOut("slow", function() {

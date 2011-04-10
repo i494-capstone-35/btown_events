@@ -1,8 +1,12 @@
-#category_div
-  %h2= @category
-  %ul#sort
-    %li= link_to 'Date', '#', :id => 'sort_date'
-    %li= link_to 'Name', '#', :id => 'sort_name'
-  %ul#categories
-    = render 'categories'
+#calendar_container
+  %p#category.heading= @category
+  #previous
+    = link_to "<<", '#', :class => 'btn'
+  = render :partial => 'week_box'
+  #next
+    = link_to ">>", '#', :class => 'btn'
+  #rando= link_to "Give me something to do", 
+    "#", 
+    :class => 'btn',
+    "data-message" => @count
 

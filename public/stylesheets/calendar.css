@@ -31,12 +31,14 @@
     width: 40px;
     line-height: 180px;
     margin: 60px 0px 0px 0px; }
-  #calendar_container p#month {
+  #calendar_container p.heading {
     text-align: center;
     font-size: 27px;
     font-family: "Chewy", "Helvetica Neue", Helvetica, sans; }
+  #calendar_container p#month {
+    margin-right: 42px; }
   #calendar_container p#month.n_month {
-    margin-left: 0; }
+    margin-right: 0; }
   #calendar_container table {
     margin: 0 10px;
     width: 1150px;

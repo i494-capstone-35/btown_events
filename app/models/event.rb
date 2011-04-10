@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
   scope :weeks_events, lambda { |time| \
     where(:date => (time.beginning_of_week..time.end_of_week)) }
   scope :categories, lambda { |c| where(:category => c) }
+  scope :weeks_events_categories, lambda { |time, category| \
+    where(:date => (time.beginning_of_week..time.end_of_week), :category => category) }
   scope :categories_day, lambda { |c, d| where(:category => c, :date => d) }
 
   # sort by attribute uniquely

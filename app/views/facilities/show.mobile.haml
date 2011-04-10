@@ -3,6 +3,7 @@
 
   - if File.exist?(Rails.root + "public/images/logos/#{@facility.image}.jpg")
     = image_tag "logos/#{@facility.image}.jpg"
+  %p#space
 
   %ul#attributes{:data => {:role => "listview", :theme => "d"}}
     %li= link_to_unless @facility.address.nil?, "Address - #{@facility.address}", "http://maps.google.com/?q=#{@facility.address}"    

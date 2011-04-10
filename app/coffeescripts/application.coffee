@@ -27,10 +27,20 @@ $(document).ready ->
         slide("left", "right", 1)
 
     slide = (dirOut, dirIn, marker) ->
+        if $("p#category").length == 1
+            category = $("p#category")[0].innerHTML
         m += marker
+        # category page contains a data-message
+        if $("p#category").length == 1
+            path = '/cat_increment'
+        else
+            path = 'increment'
         $.ajax
-            url: '/increment'
-            data: {"weeks" : m}
+            url: path
+            data: {
+                "weeks" : m
+                "category" : category
+                }
             success: (newTable) ->
                 /*$(newTable) == [<div>,ajaxytext,<table>]*/
                 month = $(newTable)[0]

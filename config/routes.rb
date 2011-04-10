@@ -11,6 +11,7 @@ BtownEvents::Application.routes.draw do
   resources :categories, :only => [:index, :show]
 
   match '/increment' => 'events#increment'
+  match '/cat_increment' => 'categories#increment'
   resources :events, :only => [:index, :show]
 
   match '/places' => 'facilities#index', :as => "facilities", :controller => :facility

@@ -2,10 +2,7 @@
   %ul#facilities{:data => {:role => "listview", :inset => "true", :filter => "true"}}
     - @facilities.each do |facility|
       %li
-        - if File.exist?(Rails.root + "public/images/logos/#{facility.image}.jpg")
-          = link_to image_tag("logos/#{facility.image}.jpg") + facility.name, facility_path(facility)
-        - else 
-          = link_to facility.name, facility_path(facility)
+        = link_to facility.name, facility_path(facility)
 
 
 

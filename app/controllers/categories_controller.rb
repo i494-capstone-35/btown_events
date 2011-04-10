@@ -1,4 +1,12 @@
 class CategoriesController < ApplicationController
+  def increment
+    n = params[:weeks].to_i
+    @category = params[:category]
+    @marker = Date.today.beginning_of_week + n.weeks
+    @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
+    render :partial => 'week_box'
+  end
+
   def index
     @categories = Event.all.map(&:category).uniq.sort
 
@@ -6,12 +14,14 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    #@events = Event.categories(params[:id]).sort_by(&sort_start_time)
-    @events = Event.where('date >= ? AND category = ?', Date.today, params[:id]).sort_by(&:date)
+    @count = Event.count
+    @marker = Date.today.beginning_of_week
     @category = params[:id]
-    @weekly_recurring = Event.uniq_by(@events, &:name).sort_by do |a| 
-      [a.date, sort_start_time.call(a)]
-    end
+    @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
+    #@events = Event.where('date >= ? AND category = ?', Date.today, params[:id]).sort_by(&:date)
+    #@weekly_recurring = Event.uniq_by(@events, &:name).sort_by do |a| 
+    #  [a.date, sort_start_time.call(a)]
+    #end
 
     respond_to :html
   end
