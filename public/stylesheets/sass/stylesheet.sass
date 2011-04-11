@@ -87,45 +87,37 @@ body
       p
         float: left
     #facility
-      width: 820px
+      width: 830px
       margin: 40px auto 0
       ul#facilities
         list-style-type: none
         text-align: center
-        .darken
-          background-color: #444
+        li
+          display: block
+          float: left
           width: 140px
           height: 140px
-          float: left
-          margin: 0 7px 5px
+          +transition
           +border-radius(6px)
-          li
+          background-position: center center
+          background-color: #f2f2f2
+          border: 1px solid #a6b5c3 
+          margin: 5px 8px
+          +box-shadow
+          a
+            width: 100%
             display: block
-            float: left
-            width: 140px
-            height: 140px
-            +transition
-            +border-radius(6px)
-            background-position: center center
-            background-color: #f2f2f2
-            border: 1px solid #a6b5c3 
-            margin: 0 7px 5px -1px
-            &:hover
-              opacity: 0.6
-              filter: alpha(opacity=60)
-            a
-              width: 100%
-              display: block
-              height: 100%
-              padding-top: 55px
-              font-size: 18px
-              font-weight: strong
-              color: black
-              &.shadow
-                color: white
-                text-shadow: 2px 3px 3px black
-                &:hover
-                  font-size: 23px
+            height: 100%
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+            padding-top: 55px
+            font-size: 18px
+            font-weight: strong
+            color: black
+            &.shadow
+              color: white
+              text-shadow: 2px 3px 3px black
+              &:hover
+                font-size: 23px
       #f_attributes
         float: left
         width: 50%
@@ -133,4 +125,37 @@ body
         float: right
         margin-top: 40px
         width: 50%
+    #categories
+      width: 860px
+      margin: 30px auto 0
+      li
+        position: relative
+        +box-shadow
+      a
+        width: 100%
+        display: block
+        height: 100%
+        padding-top: 70px
+        font-size: 18px
+        font-weight: strong
+        color: black
+        position: relative
+        z-index: 8
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+        &.shadow
+          color: white
+          text-shadow: 2px 3px 3px black
+          &:hover
+            font-size: 23px
+      .background
+        background: #e3e3e3
+        opacity: 0.6
+        width: 100%
+        height: 40px
+        bottom: 0
+        z-index: 4
+        position: absolute
+        +border-bottom-right-radius(5px)
+        +border-bottom-left-radius(5px)
+
 

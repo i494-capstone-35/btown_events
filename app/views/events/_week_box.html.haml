@@ -10,4 +10,7 @@
           - @marker += 1.days
           %ul
             - @week_events.select { |e| e.date.day == day }.each do |event|
-              %li= link_to event.name, event_path(event), :class => 'event'
+              %li
+                = link_to event.name, event_path(event), :class => 'event'
+
+                  

@@ -1,5 +1,8 @@
-- @categories.each_slice(4) do |c|
-  #category_list
-    %ul.categories
-      - c.each do |cc|
-        %li.category= link_to cc, category_path(cc)
+#categories
+  - @categories.each_slice(4) do |cat|
+    #category_list
+      %ul.categories
+        - cat.each do |category|
+          %li.category{:style => "background-image: url(#{image_path "categories/#{category_image(category)}.png"})"}
+            = link_to category, category_path(category), {:class => "shadow"}
+            .background

@@ -11,4 +11,8 @@ module EventsHelper
       time.strftime("%l:%M %p")
     end
   end
+
+  def category_image(category)
+    category.gsub(/\s*/,'')
+  end
 end

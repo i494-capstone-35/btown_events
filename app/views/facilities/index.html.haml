@@ -1,10 +1,8 @@
 #facility
   - @facilities.each do |facility|
     %ul#facilities
-      .darken
-        - if File.exist?(Rails.root + "public/images/logos/#{facility.image}.png")
-          %li{:style => "background-image: url(#{image_path "logos/#{facility.image}.png"})"}
-            = link_to facility.name, facility_path(facility), {:class => "shadow"}
-        - else
-          %li
-            = link_to facility.name, facility_path(facility)
+      - if File.exist?(Rails.root + "public/images/logos/#{facility.image}.png")
+        %li{:style => "background-image: url(#{image_path "logos/#{facility.image}.png"})"}
+          = link_to facility.name, facility_path(facility), {:class => "shadow"}
+      - else
+        %li= link_to facility.name, facility_path(facility)

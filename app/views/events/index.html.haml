@@ -1,10 +1,10 @@
-%div#calendar_container
-  %div#previous
+#calendar_container
+  #previous
     = link_to "<<", '#', :class => 'btn'
   = render :partial => 'week_box'
-  %div#next
+  #next
     = link_to ">>", '#', :class => 'btn'
-  %div#rando= link_to "Give me something to do", 
+  #rando= link_to "Give me something to do", 
     "#", 
     :class => 'btn',
     "data-message" => @count

@@ -90,6 +90,14 @@
           margin: 5px 10px 0px; }
           #calendar_container table tr td.day ul li {
             padding: 2px 0px; }
+          #calendar_container table tr td.day ul #popup {
+            width: 140px;
+            height: 140px;
+            margin: -10px -10px 0 0;
+            display: none; }
+            #calendar_container table tr td.day ul #popup #event_name {
+              font-weight: strong;
+              font-size: 14px; }
       #calendar_container table tr a.event {
         text-decoration: none;
         text-align: center;
