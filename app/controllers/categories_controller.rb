@@ -18,29 +18,8 @@ class CategoriesController < ApplicationController
     @marker = Date.today.beginning_of_week
     @category = params[:id]
     @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
-    #@events = Event.where('date >= ? AND category = ?', Date.today, params[:id]).sort_by(&:date)
-    #@weekly_recurring = Event.uniq_by(@events, &:name).sort_by do |a| 
-    #  [a.date, sort_start_time.call(a)]
-    #end
 
     respond_to :html
-  end
-
-  def sort
-    category = CGI.unescape(params[:category])
-    @events = Event.where('date >= ? AND category = ?', Date.today, category)
-    sort = params[:sortMethod]
-    if sort == "start_time"
-      @events = @events.sort_by(&:date)
-    else
-      @events = @events.sort_by(&sort.to_sym)
-    end
-    @category = @events.first.category
-    @weekly_recurring = Event.uniq_by(@events, &:name).sort_by do |a| 
-      [a.date, sort_start_time.call(a)]
-    end
-
-    render :partial => 'categories'
   end
 
   private
