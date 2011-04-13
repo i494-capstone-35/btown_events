@@ -2,13 +2,15 @@
 %html
   %head
     %title B-Town Events
+    %meta{ 'description' => "Local happenings, bar specials, and places in Bloomington!" }
+    %meta{ 'keywords' => "Bloomington, Btown, B-Town Events, Btown Bar Specials, Bloomington Bar Specials" }
     = include_stylesheets :main
     = include_javascripts :analytics, :libraries, :main
     = csrf_meta_tag
     = yield :head
 
-  %body
-    %h1= link_to  "B-Town Events ", '/'
+  %body{:style => "background-image: url(#{image_path "bodyBg.jpg"})"}
+    %h1= link_to  "B-Town Events", '/'
     %div#sitemap
       %ul
         %li= link_to 'Weekly', '/'
