@@ -66,4 +66,21 @@ describe Event do
       (Event.categories @factory.category).should_not include(f2)
     end
   end
+
+  # tests for `rake db:import; rake db:real`
+  context 'imports the data' do
+    before do
+      @reject = ["id", "updated_at", "created_at"] 
+    end
+    it 'creates a column for each Event attribute' do
+      columns = [:name, :facility_id, :date, :start_time, :end_time, :address, :recurrence, :category, :admission, :description, :event_id].
+        map(&:to_s).sort
+      columns.should == (Event.column_names - @reject).sort
+    end
+    
+    it 'creates a column for each Facility attribute' do
+      columns = [:name, :number, :address, :website, :image, :s_name].map(&:to_s).sort
+      columns.should == (Facility.column_names - @reject).sort
+    end
+  end
 end
