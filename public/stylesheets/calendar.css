@@ -3,9 +3,6 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 3px;
-  moz-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 3px;
-  box-shadow: rgba(0, 0, 0, 0.398) 0 1px 3px;
   border: 1px solid #a6b5c3;
   cursor: pointer;
   font-family: "Helvetica Neue", "Helvetica", arial, sans;
@@ -34,7 +31,7 @@
   #calendar_container p.heading {
     text-align: center;
     font-size: 27px;
-    font-family: "Chewy", "Helvetica Neue", Helvetica, sans; }
+    font-family: Helvetica, Arial, sans-serif; }
   #calendar_container p#month {
     margin-right: 42px; }
   #calendar_container p#month.n_month {
@@ -48,19 +45,15 @@
       vertical-align: top;
       height: 200px; }
       #calendar_container table tr td.day {
-        height: auto;
-        min-width: 120px;
-        margin-left: 6px;
         padding: 3px;
         background: #f2f2f2;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
-        -webkit-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 3px;
-        moz-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 3px;
-        box-shadow: rgba(0, 0, 0, 0.398) 0 1px 3px;
-        border: 1px solid;
-        border-color: #e5e5e5 #dbdbdb #d2d2d2;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 1px;
+        moz-box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px;
+        box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px;
+        border-color: #d2d2d2;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         transition: all 0.2s ease-in-out;
         -webkit-transition: all 0.2s ease-in-out;
@@ -72,12 +65,14 @@
           height: 100%;
           width: 100%;
           position: relative; }
+          #calendar_container table tr td.day #datebox .day {
+            margin-left: 24px; }
         #calendar_container table tr td.day .date {
           float: left;
           top: 0;
           left: 2px;
           font-size: 11px;
-          padding: 3px;
+          padding: 2px;
           border: 1px solid #c4c4c4;
           margin-right: 4px;
           -webkit-border-radius: 4px;
