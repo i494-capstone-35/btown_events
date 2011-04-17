@@ -1,5 +1,6 @@
 stylesheets:
   main:
+    - public/stylesheets/reset.css
     - public/stylesheets/calendar.css
     - public/stylesheets/categories.css
     - public/stylesheets/mixins.css
