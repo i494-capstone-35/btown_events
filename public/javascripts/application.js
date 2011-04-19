@@ -13,9 +13,8 @@
       });
       return $(path).css({
         color: "black",
-        padding: "7px 13px",
-        'margin-right': "15px",
         background: "#CC0000",
+        padding: "2px 10px",
         '-webkit-border-radius': "8px",
         '-moz-border-radius': "8px",
         'border-radius': "8px"

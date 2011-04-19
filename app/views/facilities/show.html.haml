@@ -15,5 +15,5 @@
         - @facility.events.sort_by(&:date).each do |e|
           - unless e.date < Date.today
             %li
-              = e.date.strftime("%m/%d")
+              %span.date= "%i/%i" % [e.date.month, e.date.day]
               = link_to e.name, event_path(e)

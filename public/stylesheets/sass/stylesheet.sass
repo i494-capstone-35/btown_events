@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Chewy)
+@import url(http://fonts.googleapis.com/css?family=Kreon:light,regular,bold)
 @import 'mixins'
 
 a
@@ -15,7 +16,7 @@ body
     a
       +title-ff
       font-size: 2em
-      color: #CC0000
+      color: #b90000
   h2
     +title-ff
     font-size: 2em
@@ -35,8 +36,11 @@ body
         a
           text-decoration: none
           background: none
+          color: #b90000
   #main
     margin-bottom: 50px
+    font-family: "Kreon", Georgia, Times, serif
+    font-weight: normal
     ul#sort
       li
         display: inline
@@ -46,13 +50,16 @@ body
         margin-right: 25px
     #event
       width: 600px
-      margin: 10px auto 0
+      margin: 0 auto
       overflow: hidden
       h2
-        margin-bottom: 0
+        margin-bottom: 5px
         float: left
+        font-family: "Kreon", Georgia, Times, serif
+        font-weight: strong
       #time
         clear: both
+        margin-bottom: 25px
         h3
           float: left
           padding-right: 4px
@@ -91,10 +98,13 @@ body
       p
         float: left
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-        font-weight: 300
+        line-height: 1.2
     #facility
       width: 830px
       margin: 40px auto 0
+      h2
+        font-family: "Kreon", Georgia, Times, serif
+        margin-bottom: 8px
       ul#facilities
         list-style-type: none
         text-align: center
@@ -125,10 +135,23 @@ body
       #f_attributes
         float: left
         width: 50%
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+        h3
+          margin: 10px 0
       #event_wrapper
         float: right
         margin-top: 40px
         width: 50%
+        strong
+          font-family: "Kreon", Georgia, Times, serif
+          font-weight: 500
+          font-size: 20px
+        ul
+          margin-top: 10px
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+          font-size: 15px
+          span.date
+            font-weight: 300
     #categories
       width: 860px
       margin: 30px auto 0

@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Chewy);
+@import url(http://fonts.googleapis.com/css?family=Kreon:light,regular,bold);
 a {
   text-decoration: none;
   color: #cc0000; }
@@ -13,7 +14,7 @@ body {
     body h1 a {
       font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
       font-size: 2em;
-      color: #cc0000; }
+      color: #b90000; }
   body h2 {
     font-family: "Chewy", "Helvetica Neue", Helvetica, sans;
     font-size: 2em; }
@@ -31,9 +32,11 @@ body {
       padding: 0 10px; }
       body #sitemap ul li a {
         text-decoration: none;
-        background: none; }
+        background: none;
+        color: #b90000; }
   body #main {
     margin-bottom: 50px;
+    font-family: "Kreon", Georgia, Times, serif;
     font-weight: normal; }
     body #main ul#sort li {
       display: inline;
@@ -43,14 +46,16 @@ body {
       margin-right: 25px; }
     body #main #event {
       width: 600px;
-      margin: 10px auto 0;
+      margin: 0 auto;
       overflow: hidden; }
       body #main #event h2 {
-        margin-bottom: 0;
+        margin-bottom: 5px;
         float: left;
+        font-family: "Kreon", Georgia, Times, serif;
         font-weight: strong; }
       body #main #event #time {
-        clear: both; }
+        clear: both;
+        margin-bottom: 25px; }
         body #main #event #time h3 {
           float: left;
           padding-right: 4px;
@@ -93,10 +98,13 @@ body {
       body #main #event p {
         float: left;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 300; }
+        line-height: 1.2; }
     body #main #facility {
       width: 830px;
       margin: 40px auto 0; }
+      body #main #facility h2 {
+        font-family: "Kreon", Georgia, Times, serif;
+        margin-bottom: 8px; }
       body #main #facility ul#facilities {
         list-style-type: none;
         text-align: center; }
@@ -132,11 +140,24 @@ body {
               text-shadow: 2px 3px 3px black; }
       body #main #facility #f_attributes {
         float: left;
-        width: 50%; }
+        width: 50%;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        body #main #facility #f_attributes h3 {
+          margin: 10px 0; }
       body #main #facility #event_wrapper {
         float: right;
         margin-top: 40px;
         width: 50%; }
+        body #main #facility #event_wrapper strong {
+          font-family: "Kreon", Georgia, Times, serif;
+          font-weight: 500;
+          font-size: 20px; }
+        body #main #facility #event_wrapper ul {
+          margin-top: 10px;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 15px; }
+          body #main #facility #event_wrapper ul span.date {
+            font-weight: 300; }
     body #main #categories {
       width: 860px;
       margin: 30px auto 0; }

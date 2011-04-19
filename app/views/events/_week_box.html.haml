@@ -11,6 +11,9 @@
           %ul
             - @week_events.select { |e| e.date.day == day }.each do |event|
               %li
-                = link_to event.name, event_path(event), :class => 'event'
+                %a.event{:href => event_path(event)}
+                  = event.name
+                  - unless event.start_time.blank?
+                    %span.start_time= "#{event.start_time.strftime("%l:%M %p")}"
 
                   
