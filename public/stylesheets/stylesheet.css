@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Chewy);
 @import url(http://fonts.googleapis.com/css?family=Kreon:light,regular,bold);
+@import url(http://fonts.googleapis.com/css?family=Chewy);
 a {
   text-decoration: none;
   color: #cc0000; }
@@ -100,11 +100,19 @@ body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         line-height: 1.2; }
     body #main #facility {
-      width: 830px;
-      margin: 40px auto 0; }
+      width: 670px;
+      margin: 10px auto 0;
+      overflow: hidden; }
+      body #main #facility img {
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 1px;
+        moz-box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px;
+        box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px; }
       body #main #facility h2 {
         font-family: "Kreon", Georgia, Times, serif;
-        margin-bottom: 8px; }
+        margin-bottom: 17px; }
       body #main #facility ul#facilities {
         list-style-type: none;
         text-align: center; }
@@ -123,6 +131,7 @@ body {
           background-color: #f2f2f2;
           border: 1px solid #a6b5c3;
           margin: 5px 8px;
+          position: relative;
           -webkit-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 1px;
           moz-box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px;
           box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px; }
@@ -134,10 +143,26 @@ body {
             padding-top: 55px;
             font-size: 18px;
             font-weight: strong;
-            color: black; }
+            color: black;
+            position: relative;
+            z-index: 8; }
             body #main #facility ul#facilities li a.shadow {
               color: white;
               text-shadow: 2px 3px 3px black; }
+            body #main #facility ul#facilities li a:hover span.background {
+              opacity: 0.2; }
+            body #main #facility ul#facilities li a span.background {
+              height: 140px;
+              width: 140px;
+              background: #bdbdbd;
+              z-index: -1;
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0.65;
+              transition: all 0.2s ease-in-out;
+              -webkit-transition: all 0.2s ease-in-out;
+              -moz-transition: all 0.2s ease-in-out; }
       body #main #facility #f_attributes {
         float: left;
         width: 50%;
@@ -145,9 +170,7 @@ body {
         body #main #facility #f_attributes h3 {
           margin: 10px 0; }
       body #main #facility #event_wrapper {
-        float: right;
-        margin-top: 40px;
-        width: 50%; }
+        float: right; }
         body #main #facility #event_wrapper strong {
           font-family: "Kreon", Georgia, Times, serif;
           font-weight: 500;
@@ -158,39 +181,3 @@ body {
           font-size: 15px; }
           body #main #facility #event_wrapper ul span.date {
             font-weight: 300; }
-    body #main #categories {
-      width: 860px;
-      margin: 30px auto 0; }
-      body #main #categories li {
-        position: relative;
-        -webkit-box-shadow: rgba(0, 0, 0, 0.398) 0 1px 1px;
-        moz-box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px;
-        box-shadow: rgba(0, 0, 0, 0.398) 0 0 1px; }
-      body #main #categories a {
-        width: 100%;
-        display: block;
-        height: 100%;
-        padding-top: 70px;
-        font-size: 18px;
-        font-weight: strong;
-        color: black;
-        position: relative;
-        z-index: 8;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-        body #main #categories a.shadow {
-          color: white;
-          text-shadow: 2px 3px 3px black; }
-      body #main #categories .background {
-        background: #e3e3e3;
-        opacity: 0.6;
-        width: 100%;
-        height: 40px;
-        bottom: 0;
-        z-index: 4;
-        position: absolute;
-        -webkit-border-bottom-right-radius: 5px;
-        -moz-border-radius-bottomright: 5px;
-        border-bottom-right-radius: 5px;
-        -webkit-border-bottom-left-radius: 5px;
-        -moz-border-radius-bottomleft: 5px;
-        border-bottom-left-radius: 5px; }

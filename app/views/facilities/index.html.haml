@@ -3,6 +3,8 @@
     %ul#facilities
       - if File.exist?(Rails.root + "public/images/logos/#{facility.image}.png")
         %li{:style => "background-image: url(#{image_path "logos/#{facility.image}.png"})"}
-          = link_to facility.name, facility_path(facility), {:class => "shadow"}
+          %a{:href => facility_path(facility), :class => "shadow"}
+            = facility.name
+            %span.background
       - else
         %li= link_to facility.name, facility_path(facility)

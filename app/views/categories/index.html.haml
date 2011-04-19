@@ -1,8 +1,8 @@
 #categories
-  - @categories.each_slice(4) do |cat|
-    #category_list
-      %ul.categories
-        - cat.each do |category|
-          %li.category{:style => "background-image: url(#{image_path "categories/#{category_image(category)}.png"})"}
-            = link_to category, category_path(category), {:class => "shadow"}
+  - @categories.each_slice(3) do |cat|
+    %ul.categories
+      - cat.each do |category|
+        %li.category{:style => "background-image: url(#{image_path "categories/#{category_image(category)}.png"})"}
+          %a{:href => category_path(category), :class => "shadow"}
+            = category
             .background
