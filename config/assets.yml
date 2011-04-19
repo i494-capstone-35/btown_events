@@ -1,10 +1,10 @@
 stylesheets:
   main:
     - public/stylesheets/reset.css
-    - public/stylesheets/calendar.css
-    - public/stylesheets/categories.css
     - public/stylesheets/mixins.css
     - public/stylesheets/stylesheet.css
+    - public/stylesheets/calendar.css
+    - public/stylesheets/categories.css
   mobile:
     - public/stylesheets/jquery.mobile*.css
     - public/stylesheets/mobile.css
