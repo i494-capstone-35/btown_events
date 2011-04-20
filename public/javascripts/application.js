@@ -1,6 +1,7 @@
 (function() {
   $(document).ready(function() {
-    var fade_categories, highlightCategories, m, slide, url;
+    /* using jquery plugin */;    var fade_categories, highlightCategories, m, slide, url;
+    $.preloadCssImages();
     m = 0;
     url = location.pathname.split('/')[1];
     highlightCategories = function() {

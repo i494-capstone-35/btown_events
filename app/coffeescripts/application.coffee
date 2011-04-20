@@ -1,4 +1,7 @@
 $(document).ready ->
+    /* using jquery plugin */
+    $.preloadCssImages()
+
     m = 0
 
     url = location.pathname.split('/')[1]
