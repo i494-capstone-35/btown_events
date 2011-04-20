@@ -1,14 +1,3 @@
-stylesheets:
-  main:
-    - public/stylesheets/reset.css
-    - public/stylesheets/mixins.css
-    - public/stylesheets/stylesheet.css
-    - public/stylesheets/calendar.css
-    - public/stylesheets/categories.css
-  mobile:
-    - public/stylesheets/jquery.mobile*.css
-    - public/stylesheets/mobile.css
-
 javascripts:
   analytics:
     - public/javascripts/g-analytics.js
@@ -23,3 +12,15 @@ javascripts:
     - public/javascripts/jquery.mobile*.js
   mobile:
     #- public/javascripts/mobile.js
+
+stylesheets:
+  main:
+    - public/stylesheets/reset.css
+    - public/stylesheets/mixins.css
+    - public/stylesheets/stylesheet.css
+    - public/stylesheets/calendar.css
+    - public/stylesheets/categories.css
+  mobile:
+    - public/stylesheets/jquery.mobile*.css
+    - public/stylesheets/mobile.css
+
