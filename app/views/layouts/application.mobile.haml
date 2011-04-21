@@ -6,7 +6,14 @@
       \/
     %meta{:name => "viewport", :content => "width=device-width", :'minimum-scale' => '1', :'maximum-scale' => "1"}
     = include_stylesheets :mobile
-    = include_javascripts :mobile_libraries, :mobile, :analytics 
+    = include_javascripts :mobile_libraries
+    :javascript
+      //reset type=date inputs to text
+      $( document ).bind( "mobileinit", function(){
+        $.mobile.page.prototype.options.degradeInputs.date = true;
+      });	
+    = include_javascripts :mobile_plugins, :mobile, :analytics  
+      
     = csrf_meta_tag
     = yield :head
 
