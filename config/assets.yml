@@ -1,6 +1,4 @@
 javascripts:
-  analytics:
-    - public/javascripts/g-analytics.js
   libraries:
     - public/javascripts/jquery-1.4.4.min.js
     - public/javascripts/jquery-ui*.js
@@ -10,10 +8,14 @@ javascripts:
     - public/javascripts/rails.js
     - public/javascripts/application.js
   mobile_libraries:
-    - public/javascripts/jquery-1.5.2*.js
+    - public/javascripts/jquery-1.5.2.min.js
+    - public/javascripts/jQuery.ui.datepicker.js
+    - public/javascripts/jquery.ui.datepicker.mobile.js
     - public/javascripts/jquery.mobile*.js
   mobile:
     #- public/javascripts/mobile.js
+  analytics:
+    - public/javascripts/g-analytics.js
 
 stylesheets:
   main:
@@ -24,5 +26,6 @@ stylesheets:
     - public/stylesheets/categories.css
   mobile:
     - public/stylesheets/jquery.mobile*.css
+    - public/stylesheets/jquery.ui.datepicker.mobile.css
     - public/stylesheets/mobile.css
 
