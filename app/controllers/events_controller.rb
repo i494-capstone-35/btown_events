@@ -33,6 +33,10 @@ class EventsController < ApplicationController
     respond_to :html
   end
 
+  def calendar
+    respond_to :html
+  end
+
   private
   def sort_start_time
     Proc.new do |event|

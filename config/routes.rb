@@ -12,6 +12,9 @@ BtownEvents::Application.routes.draw do
   match '/date/:year/:month/:day' => 'events#date', 
     :constraints => {:user_agent => Regexp.new(MOBILE_USER_AGENTS, true)}
 
+  match '/calendar' => 'events#calendar',
+    :constraints => {:user_agent => Regexp.new(MOBILE_USER_AGENTS, true)}
+
   # web
   root :to => 'events#index'
 

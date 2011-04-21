@@ -23,5 +23,9 @@
   %ul
     %li= link_to "Places", facilities_path, {:"data-icon" => "home"}
     %li= link_to "Random!", event_path(@random), {:"data-icon" => "star"}
-    -#%li= link_to "Go To Date", "#", {:"data-icon" => "grid"}
+    %li= link_to "Calendar", calendar_path, {:"data-icon" => "grid", :"data-rel" => "dialog"}
+    -#<label for="date">Date Input:</label>
+    -#<input type="date" name="date" id="date" value=""  />
+        
+        
 
