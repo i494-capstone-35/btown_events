@@ -14,7 +14,6 @@ $(document).ready ->
                         images[i] = "images/logos/" + images[i] + ".png"
                     when 'categories' then $(images).each (i) ->
                         images[i] = "images/categories/" + images[i] + ".png"
-                console.log images
                 preload(images)
 
     m = 0

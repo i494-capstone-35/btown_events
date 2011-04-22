@@ -21,7 +21,6 @@
                 return images[i] = "images/categories/" + images[i] + ".png";
               });
           }
-          console.log(images);
           return preload(images);
         });
       }
