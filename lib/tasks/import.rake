@@ -12,7 +12,10 @@ namespace :db do
     columns = [:name, :number, :address, :website, :image, :s_name]
     1.upto(rows.count - 1) do |row|
       attrs = rows[row]
-      attrs[4] = attrs[0].gsub /[\s\*&':]+/,""
+      image = attrs[0].gsub /[\s\*&':]+/,""
+      if File.exist?(Rails.root + "public/images/logos/#{image}.png")
+        attrs[4] = image
+      end
       attrs[5] = attrs[0].sub /^(the|a|an)\s+/i, ''
       Facility.create(Hash[columns.zip(attrs)])
     end

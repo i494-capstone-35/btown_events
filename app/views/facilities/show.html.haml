@@ -1,7 +1,7 @@
 #facility
   %h2= @facility.name
   #f_attributes
-    - if File.exist?(Rails.root + "public/images/logos/#{@facility.image}.png")
+    - unless @facility.image.nil?
       = image_tag "logos/#{@facility.image}.png"
     %h3= link_to "#{@facility.address}",
       "http://maps.google.com/?q=#{@facility.address}"

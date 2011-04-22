@@ -1,7 +1,7 @@
 #facility
   - @facilities.each do |facility|
     %ul#facilities
-      - if File.exist?(Rails.root + "public/images/logos/#{facility.image}.png")
+      - unless facility.image.nil?
         %li{:style => "background-image: url(#{image_path "logos/#{facility.image}.png"})"}
           %a{:href => facility_path(facility), :class => "shadow"}
             = facility.name
