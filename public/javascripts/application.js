@@ -1,9 +1,23 @@
 (function() {
   $(document).ready(function() {
-    /* using jquery plugin */;    var fade_categories, highlightCategories, m, slide, url;
-    $.preloadCssImages();
-    m = 0;
+    var fade_categories, highlightCategories, m, preload, slide, url;
     url = location.pathname.split('/')[1];
+    preload = function(arrayOfImages) {
+      return $(arrayOfImages).each(function() {
+        return $('<img/>')[0].src = this;
+      });
+    };
+    $(window).load(function() {
+      if (url === 'places') {
+        return $.getJSON('/places_images', function(images) {
+          $(images).each(function(i) {
+            return images[i] = "images/logos/" + images[i] + ".png";
+          });
+          return preload(images);
+        });
+      }
+    });
+    m = 0;
     highlightCategories = function() {
       var path;
       path = $("#sitemap li").filter(function() {

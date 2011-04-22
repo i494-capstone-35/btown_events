@@ -1,10 +1,19 @@
 $(document).ready ->
-    /* using jquery plugin */
-    $.preloadCssImages()
+    url = location.pathname.split('/')[1]
+    
+    preload = (arrayOfImages) -> 
+        $(arrayOfImages).each ->
+            $('<img/>')[0].src = this;
+
+    $(window).load ->
+        if(url == 'places')
+            $.getJSON '/places_images', (images) ->
+                $(images).each (i) ->
+                    images[i] = "images/logos/" + images[i] + ".png"
+                preload(images)
 
     m = 0
 
-    url = location.pathname.split('/')[1]
     highlightCategories = ->
         path = $("#sitemap li").filter ->
             $(this).text().toLowerCase().indexOf(url) != -1

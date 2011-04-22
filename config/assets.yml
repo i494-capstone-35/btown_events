@@ -4,8 +4,6 @@ javascripts:
   libraries:
     - public/javascripts/jquery-1.4.4.min.js
     - public/javascripts/jquery-ui*.js
-  plugins:
-    - public/javascripts/preloadCssImages.jQuery_v5.js
   main:
     - public/javascripts/rails.js
     - public/javascripts/application.js

@@ -23,6 +23,7 @@ BtownEvents::Application.routes.draw do
   resources :events, :only => [:index, :show]
 
   match '/places' => 'facilities#index', :as => "facilities", :controller => :facility
+  match '/places_images' => 'facilities#images'
   match '/places/:id' => 'facilities#show', :as => "facility", :controller => :facility
 
   #match '/app.manifest' => Rails::Offline
