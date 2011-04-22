@@ -1,9 +1,8 @@
 class FacilitiesController < ApplicationController
   def images
-    image_names = Facility.all.map(&:image).reject! {|i| i.nil?}
-    image_names
+    @image_names = Facility.all.map(&:image).compact!
 
-    render :json => image_names
+    render :json => @image_names
   end
 
   def index
