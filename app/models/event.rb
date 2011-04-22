@@ -14,19 +14,6 @@ class Event < ActiveRecord::Base
     where(:date => (time.beginning_of_week..time.end_of_week), :category => category) }
   scope :categories_day, lambda { |c, d| where(:category => c, :date => d) }
 
-  # sort by attribute uniquely
-  # Event.uniq_by array_of_objects, &:attribute
-  def self.uniq_by(array)
-    array.inject({}) do |acc, obj|
-      value = yield(obj)
-      acc[value] ||= []
-      acc[value].push obj
-      acc
-    end.map do |(key, value)|
-      value.first
-    end
-  end
-
   def sort_start_time
     Proc.new do |event|
       event.start_time.try(:strftime, "%R") || "0:00" 
