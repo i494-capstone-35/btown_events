@@ -1,4 +1,11 @@
 class CategoriesController < ApplicationController
+  def images
+    @categories = Event.all.map(&:category).uniq.sort
+    @image_names = @categories.map {|c| c.gsub(/\s*/,'')}
+
+    render :json => @image_names
+  end
+
   def increment
     n = params[:weeks].to_i
     @category = params[:category]

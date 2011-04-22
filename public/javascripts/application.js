@@ -1,18 +1,26 @@
 (function() {
   $(document).ready(function() {
     var fade_categories, highlightCategories, m, preload, slide, url;
-    url = location.pathname.split('/')[1];
+    url = location.pathname.split('/');
     preload = function(arrayOfImages) {
       return $(arrayOfImages).each(function() {
         return $('<img/>')[0].src = this;
       });
     };
     $(window).load(function() {
-      if (url === 'places') {
-        return $.getJSON('/places_images', function(images) {
-          $(images).each(function(i) {
-            return images[i] = "images/logos/" + images[i] + ".png";
-          });
+      /* if url is '\/places' or '\/categories' */;      if ((url[1] === 'places' || url[1] === 'categories') && url.length === 2) {
+        return $.getJSON(url[1] + '_images', function(images) {
+          switch (url[1]) {
+            case 'places':
+              $(images).each(function(i) {
+                return images[i] = "images/logos/" + images[i] + ".png";
+              });
+              break;
+            case 'categories':
+              $(images).each(function(i) {
+                return images[i] = "images/categories/" + images[i] + ".png";
+              });
+          }
           return preload(images);
         });
       }
