@@ -15,4 +15,16 @@ module EventsHelper
   def category_image(category)
     category.gsub(/\s*/,'')
   end
+
+  def next_month(marker)
+    if (marker.month != (marker + 1.days).month) or (marker.month != (marker - 1.days).month)
+      "next"
+    elsif beginning_of_week?(marker) and (marker.month != (marker - 1.weeks).month)
+      "prev"
+    end
+  end
+
+  def beginning_of_week?(date)
+    date == date.beginning_of_week
+  end
 end
