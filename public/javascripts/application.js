@@ -1,6 +1,7 @@
 (function() {
   $(document).ready(function() {
-    var fade_categories, highlightCategories, m, preload, slide, url;
+    var calendarChange, highlightCategories, m, preload, url;
+    m = 0;
     url = location.pathname.split('/');
     preload = function(arrayOfImages) {
       return $(arrayOfImages).each(function() {
@@ -25,7 +26,6 @@
         });
       }
     });
-    m = 0;
     highlightCategories = function() {
       var path;
       path = $("#sitemap li").filter(function() {
@@ -46,19 +46,45 @@
     if (url !== '') {
       highlightCategories(url);
     }
+    /* month navigation */;
+    $("#prev_month a").click(function() {
+      return calendarChange("right", "left", -1, -1);
+    });
+    $("#next_month a").click(function() {
+      return calendarChange("left", "right", 1, 1);
+    });
+    /* week navigation */;
     $("#previous a").click(function() {
-      return slide("right", "left", -1);
+      return calendarChange("right", "left", -1, 0);
     });
     $("#next a").click(function() {
-      return slide("left", "right", 1);
+      return calendarChange("left", "right", 1, 0);
     });
-    slide = function(dirOut, dirIn, marker) {
-      var category, path;
+    return calendarChange = function(dirOut, dirIn, newValue, newMonth) {
+      var category, month, path;
+      if (newMonth !== 0) {
+        m = parseInt($("table")[0].getAttribute("data-message"));
+        month = newMonth;
+      } else {
+        m = parseInt($("table")[0].getAttribute("data-message")) + newValue;
+      }
+      if (newMonth === 0) {
+        $(".date").each(function() {
+          switch (this.getAttribute("data-message")) {
+            case "next":
+              if (newValue === 1) {
+                return newMonth = 1;
+              }
+              break;
+            case "prev":
+              if (newValue === -1) {
+                return newMonth = -1;
+              }
+          }
+        });
+      }
       if ($("p#category").length === 1) {
         category = $("p#category")[0].innerHTML;
-      }
-      m += marker;
-      if ($("p#category").length === 1) {
         path = '/cat_increment';
       } else {
         path = 'increment';
@@ -67,62 +93,32 @@
         url: path,
         data: {
           "weeks": m,
+          "month": month,
           "category": category
         },
+        dataType: "html",
         success: function(newTable) {
-          /*$(newTable) == [<div>,ajaxytext,<table>]*/;          var month, table;
-          month = $(newTable)[0];
-          table = $(newTable)[2];
-          $("p#month").fadeOut("slow", function() {
-            $("p#month").html(month).addClass("n_month");
-            return $("p#month").fadeIn("slow");
-          });
+          if (newMonth !== 0) {
+            $("p#month").hide("slide", {
+              direction: dirOut
+            }, 480, function() {
+              $(this).replaceWith($(newTable).find("p#month")[0]);
+              return $("p#month").show("slide", {
+                direction: dirIn
+              }, 300);
+            });
+          }
           return $("table").hide("slide", {
             direction: dirOut
           }, 480, function() {
-            $(this).replaceWith(table);
+            $(this).replaceWith($(newTable).find("table"));
             return $("table").show("slide", {
               direction: dirIn
-            }, 300, function() {
-              return $("#rando a").animate({
-                opacity: 0
-              }, "fast");
-            });
+            }, 300);
           });
         }
       });
       return false;
     };
-    $("li a#sort_date").click(function() {
-      return fade_categories("start_time");
-    });
-    $("li a#sort_name").click(function() {
-      return fade_categories("name");
-    });
-    fade_categories = function(sortMethod) {
-      var category;
-      url = location.pathname;
-      category = url.split('/')[2];
-      $.ajax({
-        url: '/sort',
-        data: {
-          "sortMethod": sortMethod,
-          "category": category
-        },
-        success: function(newList) {
-          return $("ul#categories").fadeOut("slow", function() {
-            $(this).html(newList);
-            return $(this).fadeIn("slow");
-          });
-        }
-      });
-      return false;
-    };
-    return $("#rando a").click(function() {
-      var count, random;
-      count = this.getAttribute("data-message");
-      random = Math.floor(Math.random() * count + 1);
-      return window.location = "/events/" + random;
-    });
   });
 }).call(this);

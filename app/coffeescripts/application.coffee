@@ -1,4 +1,5 @@
 $(document).ready ->
+    m = 0
     url = location.pathname.split('/')
     
     preload = (arrayOfImages) -> 
@@ -15,8 +16,6 @@ $(document).ready ->
                     when 'categories' then $(images).each (i) ->
                         images[i] = "images/categories/" + images[i] + ".png"
                 preload(images)
-
-    m = 0
 
     highlightCategories = ->
         path = $("#sitemap li").filter ->
@@ -35,64 +34,60 @@ $(document).ready ->
     if(url != '')
         highlightCategories(url)
 
+    /* month navigation */
+    $("#prev_month a").click ->
+        calendarChange "right", "left", -1, -1
+
+    $("#next_month a").click ->
+        calendarChange "left", "right", 1, 1
+
+    /* week navigation */
     $("#previous a").click ->
-        slide("right", "left", -1)
+        calendarChange "right", "left", -1, 0
 
     $("#next a").click ->
-        slide("left", "right", 1)
+        calendarChange "left", "right", 1, 0
 
-    slide = (dirOut, dirIn, marker) ->
+    calendarChange = (dirOut, dirIn, newValue, newMonth) ->
+        if newMonth != 0
+            m = parseInt($("table")[0].getAttribute("data-message"))
+            month = newMonth
+        else
+            m = parseInt($("table")[0].getAttribute("data-message")) + newValue
+
+        if newMonth == 0
+            $(".date").each ->
+                switch this.getAttribute("data-message")
+                    when "next"
+                        if newValue == 1
+                            return newMonth = 1
+                    when "prev"
+                        if newValue == -1
+                            return newMonth = -1
+
         if $("p#category").length == 1
             category = $("p#category")[0].innerHTML
-        m += marker
-        # category page contains a data-message
-        if $("p#category").length == 1
             path = '/cat_increment'
         else
             path = 'increment'
+
         $.ajax
             url: path
             data: {
                 "weeks" : m
+                "month" : month
                 "category" : category
                 }
+            dataType: "html"
             success: (newTable) ->
-                /*$(newTable) == [<div>,ajaxytext,<table>]*/
-                month = $(newTable)[0]
-                table = $(newTable)[2]
-                $("p#month").fadeOut "slow", ->
-                    # replace html to fadeIn properly. add class to remove margin
-                    $("p#month").html(month).addClass("n_month")
-                    $("p#month").fadeIn("slow")
+                if newMonth != 0
+                    $("p#month").hide "slide", {direction: dirOut}, 480, ->
+                        $(this).replaceWith($(newTable).find("p#month")[0])
+                        $("p#month").show "slide", {direction: dirIn}, 300
+
                 $("table").hide "slide", {direction: dirOut}, 480, ->
-                    $(this).replaceWith(table)
-                    $("table").show "slide", {direction: dirIn}, 300, ->
-                        $("#rando a").animate({ opacity: 0 }, "fast")
+                    $(this).replaceWith($(newTable).find("table"))
+                    $("table").show "slide", {direction: dirIn}, 300
+
         return false
-
-    $("li a#sort_date").click ->
-        fade_categories("start_time")
-
-    $("li a#sort_name").click ->
-        fade_categories("name")
-
-    fade_categories = (sortMethod) ->
-        url = location.pathname
-        category = url.split('/')[2]
-        $.ajax
-            url: '/sort'
-            data: {
-                "sortMethod" : sortMethod,
-                "category"   : category
-            }
-            success: (newList) ->
-                $("ul#categories").fadeOut "slow", ->
-                    $(this).html(newList)
-                    $(this).fadeIn("slow")
-        return false
-
-    $("#rando a").click ->
-        count = this.getAttribute("data-message")
-        random = Math.floor(Math.random() * count + 1)
-        window.location = "/events/" + random
 

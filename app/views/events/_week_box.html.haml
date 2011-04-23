@@ -1,11 +1,10 @@
-%p#month.heading= @marker.strftime("%B")
-%table
+%table{:'data-message' => @m || 0}
   %tr.week 
     - 7.times do
       %td.day
         #datebox
           - day = @marker.day
-          .date= day
+          .date{:'data-message' => next_month(@marker)}= day
           .day= @marker.strftime("%A")
           - @marker += 1.days
           %ul

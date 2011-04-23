@@ -1,12 +1,14 @@
 #calendar_container
   %p#category.heading= @category
-  #previous
-    = link_to "<<", '#', :class => 'btn'
-  = render :partial => 'week_box'
-  #next
-    = link_to ">>", '#', :class => 'btn'
-  #rando= link_to "Give me something to do", 
-    "#", 
-    :class => 'btn',
-    "data-message" => @count
-
+  #month
+    #prev_month
+      = link_to "<<", '#'
+    = render :partial => 'month'
+    #next_month
+      = link_to ">>", '#'
+  #week
+    #previous
+      = link_to "<<", '#', :class => 'btn'
+    = render :partial => 'week_box'
+    #next
+      = link_to ">>", '#', :class => 'btn'

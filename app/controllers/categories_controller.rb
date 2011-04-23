@@ -7,12 +7,29 @@ class CategoriesController < ApplicationController
   end
 
   def increment
-    n = params[:weeks].to_i
+    m = params[:weeks].to_i
     @category = params[:category]
-    @marker = Date.today.beginning_of_week + n.weeks
+    month = params[:month].to_i
+
+    if month != 0
+      next_month = (Date.today + m.weeks).beginning_of_week + month.months
+      if next_month.beginning_of_month.beginning_of_week.month == next_month.beginning_of_month.month
+        @marker = next_month.beginning_of_month.beginning_of_week
+      else
+        @marker = (next_month.beginning_of_month + 1.weeks).beginning_of_week
+      end
+      # best way to get difference in weeks
+      (@marker - Date.today.beginning_of_week).days.inspect =~ /(-?\d+)/
+        @m = ($1.to_i / 7)
+    else
+      @marker = (Date.today + m.weeks).beginning_of_week
+      @m = m
+    end
+
     @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
-    render :partial => 'week_box'
+    render 'show.html.haml', :layout => false
   end
+
 
   def index
     @categories = Event.all.map(&:category).uniq.sort
@@ -21,7 +38,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @count = Event.count
     @marker = Date.today.beginning_of_week
     @category = params[:id]
     @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
