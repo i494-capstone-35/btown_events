@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Kreon:light,regular,bold);
+@import url(http://fonts.googleapis.com/css?family=Chewy);
 .btn {
   background: #e3e3e3;
   -webkit-border-radius: 3px;
@@ -31,7 +33,7 @@
     overflow: hidden; }
     #calendar_container #month p {
       float: left;
-      width: 387px;
+      width: 375px;
       margin: 0 !important;
       padding: 0 !important; }
   #calendar_container #prev_month {
