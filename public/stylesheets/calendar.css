@@ -43,8 +43,7 @@
   #calendar_container #previous {
     float: left;
     width: 40px;
-    line-height: 180px;
-    margin: -15px 0px 0px 0px; }
+    line-height: 180px; }
   #calendar_container p.heading {
     text-align: center;
     font-size: 27px;
