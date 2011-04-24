@@ -15,9 +15,10 @@ javascripts:
     #- public/javascripts/mobile.js
 
 stylesheets:
-  main:
+  core:
     - public/stylesheets/reset.css
     - public/stylesheets/mixins.css
+  main:
     - public/stylesheets/stylesheet.css
     - public/stylesheets/calendar.css
     - public/stylesheets/categories.css
