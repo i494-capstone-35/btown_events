@@ -1,31 +1,8 @@
 (function() {
   $(document).ready(function() {
-    var calendarChange, highlightCategories, m, preload, url;
+    var calendarChange, highlightCategories, m, url;
     m = 0;
     url = location.pathname.split('/');
-    preload = function(arrayOfImages) {
-      return $(arrayOfImages).each(function() {
-        return $('<img/>')[0].src = this;
-      });
-    };
-    $(window).load(function() {
-      /* if url is '\/places' or '\/categories' */;      if ((url[1] === 'places' || url[1] === 'categories') && url.length === 2) {
-        return $.getJSON(url[1] + '_images', function(images) {
-          switch (url[1]) {
-            case 'places':
-              $(images).each(function(i) {
-                return images[i] = "images/logos/" + images[i] + ".png";
-              });
-              break;
-            case 'categories':
-              $(images).each(function(i) {
-                return images[i] = "images/categories/" + images[i] + ".png";
-              });
-          }
-          return preload(images);
-        });
-      }
-    });
     highlightCategories = function() {
       var path;
       path = $("#sitemap li").filter(function() {
@@ -101,11 +78,11 @@
           if (newMonth !== 0) {
             $("p#month").hide("slide", {
               direction: dirOut
-            }, 480, function() {
+            }, 600, function() {
               $(this).replaceWith($(newTable).find("p#month")[0]);
               return $("p#month").show("slide", {
                 direction: dirIn
-              }, 300);
+              }, 200);
             });
           }
           return $("table").hide("slide", {
