@@ -2,21 +2,6 @@ $(document).ready ->
     m = 0
     url = location.pathname.split('/')
     
-    preload = (arrayOfImages) -> 
-        $(arrayOfImages).each ->
-            $('<img/>')[0].src = this;
-
-    $(window).load ->
-        /* if url is '\/places' or '\/categories' */
-        if (url[1] == 'places' or url[1] == 'categories') and url.length == 2
-            $.getJSON url[1] + '_images', (images) ->
-                switch url[1]
-                    when 'places' then $(images).each (i) ->
-                        images[i] = "images/logos/" + images[i] + ".png"
-                    when 'categories' then $(images).each (i) ->
-                        images[i] = "images/categories/" + images[i] + ".png"
-                preload(images)
-
     highlightCategories = ->
         path = $("#sitemap li").filter ->
             $(this).text().toLowerCase().indexOf(url) != -1
