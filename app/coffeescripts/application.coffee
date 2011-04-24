@@ -66,9 +66,9 @@ $(document).ready ->
             dataType: "html"
             success: (newTable) ->
                 if newMonth != 0
-                    $("p#month").hide "slide", {direction: dirOut}, 480, ->
+                    $("p#month").hide "slide", {direction: dirOut}, 600, ->
                         $(this).replaceWith($(newTable).find("p#month")[0])
-                        $("p#month").show "slide", {direction: dirIn}, 300
+                        $("p#month").show "slide", {direction: dirIn}, 200
 
                 $("table").hide "slide", {direction: dirOut}, 480, ->
                     $(this).replaceWith($(newTable).find("table"))
