@@ -1,6 +1,6 @@
 class FacilitiesController < ApplicationController
   def images
-    @image_names = Facility.all.map(&:image).compact!
+    @image_names = Facility.all.sort_by(&:name).map(&:image).compact!
 
     render :json => @image_names
   end
