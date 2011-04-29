@@ -35,11 +35,7 @@ $(document).ready ->
 
     calendarChange = (dirOut, dirIn, newValue, newMonth) ->
         if newMonth != 0
-<<<<<<< HEAD
             m     = parseInt($("table")[0].getAttribute("data-message"))
-=======
-            m = parseInt($("table")[0].getAttribute("data-message"))
->>>>>>> b4718ed0d0b91c67493d30cbc2229d5aaeee655f
             month = newMonth
         else
             m = parseInt($("table")[0].getAttribute("data-message")) + newValue
@@ -63,13 +59,8 @@ $(document).ready ->
         $.ajax
             url: path
             data: {
-<<<<<<< HEAD
                 "weeks"    : m
                 "month"    : month
-=======
-                "weeks" : m
-                "month" : month
->>>>>>> b4718ed0d0b91c67493d30cbc2229d5aaeee655f
                 "category" : category
                 }
             dataType: "html"
