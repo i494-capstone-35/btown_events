@@ -1,22 +1,22 @@
 class EventsController < ApplicationController
 
   def increment
-    m = params[:weeks].to_i
+    m     = params[:weeks].to_i
     month = params[:month].to_i
 
     if month != 0
-      next_month = (Date.today + m.weeks).beginning_of_week + month.months
-      if next_month.beginning_of_month.beginning_of_week.month == next_month.beginning_of_month.month
-        @marker = next_month.beginning_of_month.beginning_of_week
-      else
-        @marker = (next_month.beginning_of_month + 1.weeks).beginning_of_week
-      end
+      next_month = ((Date.today + m.weeks).beginning_of_week + month.months).beginning_of_month
+      @marker = if next_month.beginning_of_week.month == next_month.month
+                  next_month.beginning_of_week
+                else
+                  (next_month + 1.weeks).beginning_of_week
+                end
       # best way to get difference in weeks
       (@marker - Date.today.beginning_of_week).days.inspect =~ /(-?\d+)/
         @m = ($1.to_i / 7)
     else
       @marker = (Date.today + m.weeks).beginning_of_week
-      @m = m
+      @m      = m
     end
 
     @week_events = Event.weeks_events(@marker).sort_by(&sort_start_time)
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @marker = Date.today.beginning_of_week
+    @marker      = Date.today.beginning_of_week
     @week_events = Event.weeks_events(@marker).sort_by(&sort_start_time)
 
     respond_to :html
@@ -43,8 +43,8 @@ class EventsController < ApplicationController
       @today = Date.today
     end
     @categories = Event.all.map(&:category).uniq.sort
-    @events = Event.where(:date => @today)
-    @random = @events[rand(@events.count)]
+    @events     = Event.where(:date => @today)
+    @random     = @events[rand(@events.count)]
 
     respond_to :html
   end

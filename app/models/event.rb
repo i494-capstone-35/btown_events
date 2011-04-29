@@ -14,12 +14,6 @@ class Event < ActiveRecord::Base
     where(:date => (time.beginning_of_week..time.end_of_week), :category => category) }
   scope :categories_day, lambda { |c, d| where(:category => c, :date => d) }
 
-  def sort_start_time
-    Proc.new do |event|
-      event.start_time.try(:strftime, "%R") || "0:00" 
-    end
-  end
-
   private
   def time_dates
     unless start_time.nil?
@@ -43,13 +37,16 @@ class Event < ActiveRecord::Base
       # recurrence should look like "<num>[d,w,m]<times>"
       # or if it's a bar special, omit the times since it defaults to 3 months
       interval = Integer recurrence[0].chr
-      string = recurrence[1].chr
-      if category == "Bar Special" && recurrence == "1w"
-        term = 12
-      else
-        term = Integer recurrence[2].chr
-      end
+      string   = recurrence[1].chr
+      # bar specials are set to 3 months of repetition unless otherwise
+      term = if category == "Bar Special" && recurrence == "1w"
+               12
+             else
+               Integer recurrence[2].chr
+             end
 
+      # calculate the integer value before the DateTime object
+      # fixes some weird issues with DateTime
       recur = lambda do |x|
         case string
         when 'd' then
@@ -63,8 +60,8 @@ class Event < ActiveRecord::Base
 
       # has the effect of saving all clones before the original
       1.upto(term) do |i|
-        clone = self.clone
-        clone.date += recur.call i
+        clone            = self.clone
+        clone.date      += recur.call i
         clone.recurrence = nil
         clone.save
       end
