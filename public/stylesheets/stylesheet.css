@@ -37,7 +37,8 @@ body {
   body #main {
     margin-bottom: 50px;
     font-family: "Kreon", Georgia, Times, serif;
-    font-weight: normal; }
+    font-weight: normal;
+    padding: 0 7px; }
     body #main ul#sort li {
       display: inline;
       list-style-type: none;
