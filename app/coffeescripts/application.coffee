@@ -1,6 +1,6 @@
 $(document).ready ->
-    m = 0
     url = location.pathname.split('/')
+    m   = 0
     
     highlightCategories = ->
         path = $("#sitemap li").filter ->
@@ -9,12 +9,12 @@ $(document).ready ->
             color: "white"
         }
         $(path).css {
-            color: "black"
-            background: "#CC0000"
-            padding: "2px 10px"
-            '-webkit-border-radius': "8px"
-            '-moz-border-radius': "8px"
-            'border-radius': "8px"
+            color                   : "black"
+            background              : "#CC0000"
+            padding                 : "2px 10px"
+            '-webkit-border-radius' : "8px"
+            '-moz-border-radius'    : "8px"
+            'border-radius'         : "8px"
         }
     if(url != '')
         highlightCategories(url)
@@ -35,7 +35,7 @@ $(document).ready ->
 
     calendarChange = (dirOut, dirIn, newValue, newMonth) ->
         if newMonth != 0
-            m = parseInt($("table")[0].getAttribute("data-message"))
+            m     = parseInt($("table")[0].getAttribute("data-message"))
             month = newMonth
         else
             m = parseInt($("table")[0].getAttribute("data-message")) + newValue
@@ -59,8 +59,8 @@ $(document).ready ->
         $.ajax
             url: path
             data: {
-                "weeks" : m
-                "month" : month
+                "weeks"    : m
+                "month"    : month
                 "category" : category
                 }
             dataType: "html"

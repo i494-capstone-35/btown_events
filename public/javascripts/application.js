@@ -1,8 +1,8 @@
 (function() {
   $(document).ready(function() {
     var calendarChange, highlightCategories, m, url;
-    m = 0;
     url = location.pathname.split('/');
+    m = 0;
     highlightCategories = function() {
       var path;
       path = $("#sitemap li").filter(function() {
