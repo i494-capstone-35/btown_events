@@ -6,7 +6,6 @@ javascripts:
     - public/javascripts/jquery-ui*.js
   main:
     - public/javascripts/rails.js
-    - public/javascripts/preload.js
     - public/javascripts/application.js
   mobile_libraries:
     - public/javascripts/jquery-1.5.2*.js
