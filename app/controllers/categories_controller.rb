@@ -7,9 +7,9 @@ class CategoriesController < ApplicationController
   end
 
   def increment
-    m = params[:weeks].to_i
+    m         = params[:weeks].to_i
     @category = params[:category]
-    month = params[:month].to_i
+    month     = params[:month].to_i
 
     if month != 0
       next_month = (Date.today + m.weeks).beginning_of_week + month.months
@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
         @m = ($1.to_i / 7)
     else
       @marker = (Date.today + m.weeks).beginning_of_week
-      @m = m
+      @m      = m
     end
 
     @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
@@ -38,8 +38,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @marker = Date.today.beginning_of_week
-    @category = params[:id]
+    @marker      = Date.today.beginning_of_week
+    @category    = params[:id]
     @week_events = Event.weeks_events_categories(@marker, @category).sort_by(&sort_start_time)
 
     respond_to :html

@@ -38,7 +38,6 @@ class Event < ActiveRecord::Base
       # or if it's a bar special, omit the times since it defaults to 3 months
       interval = Integer recurrence[0].chr
       string   = recurrence[1].chr
-      # bar specials are set to 3 months of repetition unless otherwise
       term = if category == "Bar Special" && recurrence == "1w"
                12
              else

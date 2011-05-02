@@ -2,7 +2,7 @@
   #month
     #prev_month
       = link_to "<<", '#'
-    = render :partial => 'month'
+    %p#month.heading= @marker.strftime("%B")
     #next_month
       = link_to ">>", '#'
   #week

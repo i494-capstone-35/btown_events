@@ -6,7 +6,7 @@
     highlightCategories = function() {
       var path;
       path = $("#sitemap li").filter(function() {
-        return $(this).text().toLowerCase().indexOf(url) !== -1;
+        return $(this).text().toLowerCase() === url[1];
       });
       $(path).find("a").css({
         color: "white"
@@ -23,14 +23,12 @@
     if (url !== '') {
       highlightCategories(url);
     }
-    /* month navigation */;
     $("#prev_month a").click(function() {
       return calendarChange("right", "left", -1, -1);
     });
     $("#next_month a").click(function() {
       return calendarChange("left", "right", 1, 1);
     });
-    /* week navigation */;
     $("#previous a").click(function() {
       return calendarChange("right", "left", -1, 0);
     });

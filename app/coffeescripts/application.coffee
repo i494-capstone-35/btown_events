@@ -4,9 +4,9 @@ $(document).ready ->
     
     highlightCategories = ->
         path = $("#sitemap li").filter ->
-            $(this).text().toLowerCase().indexOf(url) != -1
+            $(this).text().toLowerCase() == url[1]
         $(path).find("a").css {
-            color: "white"
+            color : "white"
         }
         $(path).css {
             color                   : "black"
@@ -16,22 +16,26 @@ $(document).ready ->
             '-moz-border-radius'    : "8px"
             'border-radius'         : "8px"
         }
+
     if(url != '')
         highlightCategories(url)
 
-    /* month navigation */
+    # arguments are animation direction out, in, in/decrement the week marker,
+    # and whether it's a new month
+    #
+    # month navigation
     $("#prev_month a").click ->
         calendarChange "right", "left", -1, -1
 
     $("#next_month a").click ->
-        calendarChange "left", "right", 1, 1
+        calendarChange "left", "right",  1,  1
 
-    /* week navigation */
+    # week navigation
     $("#previous a").click ->
-        calendarChange "right", "left", -1, 0
+        calendarChange "right", "left", -1,  0
 
     $("#next a").click ->
-        calendarChange "left", "right", 1, 0
+        calendarChange "left", "right",  1,  0
 
     calendarChange = (dirOut, dirIn, newValue, newMonth) ->
         if newMonth != 0
@@ -52,7 +56,7 @@ $(document).ready ->
 
         if $("p#category").length == 1
             category = $("p#category")[0].innerHTML
-            path = '/cat_increment'
+            path     = '/cat_increment'
         else
             path = 'increment'
 
